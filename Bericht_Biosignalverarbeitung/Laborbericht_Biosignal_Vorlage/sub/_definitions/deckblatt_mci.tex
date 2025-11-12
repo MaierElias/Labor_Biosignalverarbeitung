@@ -1,0 +1,79 @@
+\begin{titlepage}
+
+
+\thispagestyle{empty}
+\enlargethispage{5cm}
+
+% set MCI logos as background
+\ThisULCornerWallPaper{}{sub/_definitions/header}
+%
+\vspace*{-3.4cm}
+{\color{white}\scriptsize\sffamily\bfseries\hspace*{7.42cm}\vspace*{-1.5ex}DIE UNTERNEHMERISCHE HOCHSCHULE\textsuperscript{\textregistered}\\\hspace*{7.42cm}\vspace*{-1ex}MCI MANAGEMENT CENTER INNSBRUCK\\}
+{\color{white}\tiny\sffamily\bfseries\hspace*{9.1cm}\vspace*{-2ex}A-6020 Innsbruck, Universit\"atsstra\ss e 15\\\hspace*{9.1cm}+43 512 2070 0, office@mci.edu, www.mci.edu}
+% -------- only change entries beginning here ----------------------------
+%
+% enter the study (Studienrichtung)
+% z.B. \def\study{Mechatronik - Maschinenbau}
+\ifthenelse{\boolean{english}}{\def\study{Bachelor Medical, Health and Sports Engineering}}{\def\study{Bachelor Medizin-, Gesundheits- und Sporttechnologie}}
+%
+%
+% enter the name of the institute
+% z.B. \def\institute{Management Center Innsbruck}
+\def\institute{\includegraphics[width=5cm]{sub/_definitions/MCI_4C}}
+%
+% enter date
+\def\date{\today}
+
+\def\diplskip{\ifnum\titlelength>2\medskip\else\bigskip\fi}
+\def\varskip{\ifcase\titlelength\bigskip\bigskip\bigskip\or\bigskip\bigskip\or\bigskip\else\smallskip\fi}
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+\unitlength 1cm
+
+\begin{picture}(0,0)
+
+%\put(-.97,-4.2){\begin{minipage}[t]{17cm}
+\put(-.97,-4.2){\begin{minipage}[t]{\textwidth} %CAS
+\begin{center}
+\Large\textsc{\type}
+\bigskip\par
+\LARGE \textbf{\lecture}
+\smallskip\par
+\LARGE \textbf{\codeStudydegreeyear}
+\bigskip\par
+\large \textbf{\subtitle}
+\bigskip\par
+% Lecturer: Alexander Walder, B.Sc.
+\varskip\bigskip\par
+\Large \textsc{\semester}
+\varskip\bigskip\par
+\normalsize \ifthenelse{\boolean{english}}{study program}{Studiengang} 
+\bigskip\par
+\Large \textsc{\study}
+\end{center}
+\vspace*{2mm}
+\bigskip\bigskip\par
+\vspace*{6mm}
+\begin{minipage}[t]{6.9cm}
+    \begin{flushleft} \large
+    \normalsize \ifthenelse{\boolean{english}}{Authors}{Verfasser}:
+    \smallskip\par
+    \large\textsl{\student}
+    \bigskip\par
+    \normalsize \ifthenelse{\boolean{english}}{Lecturer}{LV-Leiter}:
+    \smallskip\par
+    \large\textsl{\lecturer}
+    \end{flushleft}
+\end{minipage}
+\diplskip\bigskip\par
+\diplskip\bigskip\par
+\normalsize \ifthenelse{\boolean{english}}{last update}{letzte Aktualisierung}: \date
+\diplskip\par
+\diplskip\par
+\bigskip
+\bigskip\bigskip
+\ifnum\titlelength>2\bigskip\bigskip\else\bigskip\bigskip\medskip\fi
+\par
+\normalsize {\sl \institute}
+\end{minipage}}
+\end{picture}
+\end{titlepage}

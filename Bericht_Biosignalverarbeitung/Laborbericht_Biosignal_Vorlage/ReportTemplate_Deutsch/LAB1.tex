@@ -1,0 +1,104 @@
+\documentclass[11pt,a4paper,oneside]{article}
+
+\usepackage[left=3.5cm,right=2.5cm,top=3cm,bottom=4cm,headsep=7ex,footskip=1.5cm]{geometry}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{matlab-prettifier}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage[straightvoltages]{circuitikz}
+
+%\usepackage[backend=biber,style=alphabetic]{biblatex}
+
+\usepackage{textgreek}
+
+
+%\setlanguage{\english}
+
+\newcommand{\relpath}{./}
+
+% This is more or less the "Main" of our latex document. All the files are put together here.
+% Adapt the variables for your case accordingly
+
+\def\titlelength{0}
+\def\type{Labor Report}
+\def\lecture{Titel der LV}
+\def\codeStudydegreeyear{MGST-B-2-MR-MSR-ILV}
+\def\subtitle{Aufgabe 1}
+\def\semester{Wintersemester  2024/2025}
+\def\student{Max Mustermann\newline Maria Musterfrau}
+\def\lecturer{Dr. Gerda Strutzenberger\newline Prof.Dr.Dipl Daniel Sieber\newline Prof Yeongmi Kim\newline Prof Bernhard Hollaus}
+
+\usepackage{ifthen}
+\newboolean{skript}
+\setboolean{skript}{true}
+
+\input{sub/_definitions/definitions_mci.tex}
+% graphics paths compiling from main and compiling from subfile
+\graphicspath{{sub/_fig.s/}{.._/fig.s/}}
+
+\begin{document}
+\pagenumbering{Roman}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{sub/_definitions/deckblatt_mci.tex}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\blankpage
+\setcounter{page}{2}
+\tableofcontents
+\vspace{2cm}
+%\clearpage
+	\newpage
+	%% Remember roman page count for continuing in appendix
+	\setcounter{romancount}{\value{page}}
+    	\setcounter{page}{1}
+
+	\pagenumbering{arabic}
+	
+
+	\input{sections/1-introduction.tex} % have a look inside the tex files regarding  the sections. Here they are only added one after another
+    \clearpage  %Weil die section davor mit einer Floating tabelle endet, funktioniert der \newpage Befehl nicht richtig
+	\input{sections/2-preparation.tex}
+    \newpage
+	\input{sections/3-execution.tex}
+    \newpage
+	\input{sections/4-result.tex}
+
+	
+	%% Appendix and lists have continued roman page count
+	\newpage
+	\pagenumbering{Roman}
+    \setcounter{page}{\value{romancount}}
+
+    % If you use \cite the entry will show up in the literature -> Comment out this block until 
+	  \addcontentsline{toc}{section}{Literaturverzeichnis}
+	\bibliographystyle{IEEEtran}
+	\renewcommand*{\refname}{Literaturverzeichnis}
+	\bibliography{literature}
+    % here if you do not need it. If there is no figure or table (which is almost never the case) comment out the \addcontentsline respectively  
+ 
+	\vspace{1cm}
+	\newpage
+	\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+	\listoffigures	
+ 
+	\newpage
+	\addcontentsline{toc}{section}{Tabellenverzeichnis}
+	\listoftables 
+    %\newpage
+    %\addcontentsline{toc}{section}{List of Code}
+	%\lstlistoflistings
+	%\listofacronyms
+\end{document}
+
+
+
+
+

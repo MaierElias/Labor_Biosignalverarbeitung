@@ -1,0 +1,26 @@
+
+
+\section{Experiment und Methodik}
+Hier sollte sich der Inhalt damit befassen, was Sie \textit{während} der Laborsitzung tatsächlich getan haben. Die Reihenfolge der Punkte sollte nach eigenem Ermessen festgelegt werden.
+
+
+\begin{itemize}
+     \item Zeigen Sie mindestens eine Abbildung, die den Versuchsaufbau beschreibt. In diesem Fall sollte das der Widerstand sein, der korrekt mit dem Kondensator verbunden ist, die Oszilloskopsonden sowie die Eingangssonden des Funktionsgenerators. Zeigen Sie in der Abbildung, was was ist, z. B. mit Pfeilen. Abbildung \ref{fig:Setup} zeigt ein Beispiel, wie dies aussehen könnte. Es wird empfohlen, Pfeile usw. z. B. in PowerPoint oder Inkscape hinzuzufügen und die exportierten Abbildungen in das Latex-Dokument einzufügen. Das Hinzufügen von Grafiken in Abbildungen ist auch in Latex möglich, aber nicht sehr komfortabel.
+       \begin{figure}[H]
+        	\centering	\includegraphics[width=0.7\textwidth]{images/ExperimentalSetup_Deutsch.jpg} % via \textwidth you can control the width of the image in relation to the text. You can also set absolute dimensions in cm 
+        	\caption[Aufbau des Experiments]{Der Versuchsaufbau besteht aus einem Funktionsgenerator, einem Oszilloskop, einem Widerstand, einem Kondensator, einer Erdung und einem Schaltbrett, um alles anzuschließen. Die Eingangsspannung $U_{in}$ wird durch den Funktionsgenerator angelegt, während die Ausgangsspannung $U_{out}$ ist.} 
+        	\label{fig:Setup}
+        \end{figure} 
+    \item Beschreiben Sie die Ausgangsbedingungen für das Experiment (z.B. welche Werte haben die Komponenten? Wie haben Sie sie gemessen?).
+    \item Beschreiben Sie den Ablauf des Experiments Schritt für Schritt. Eine Person mit Ihrem Bildungshintergrund sollte in der Lage sein, die Messung zu wiederholen, indem sie die Beschreibung liest. Wie waren die Einstellungen der Geräte? Wie wurden die Messwerte aufgezeichnet?
+  
+    \item Falls Sie während der Sitzung Berechnungen durchführen mussten, zeigen Sie diese hier. Geben Sie daher alle Formeln an und setzen Sie Zahlen und Einheiten ein, wie in Gleichung \ref{Eq:CutOff} als Beispiel gezeigt. Ergebnisse im Text sollten entsprechend den Richtlinien \cite{lab-guide} geschrieben werden, d.h. das Symbol wird in Kursivschrift  geschrieben und ein Leerzeichen wird  zwischen Zahl und Einheit gesetzt. Die einfachste Art, es korrekt zu schreiben, ist $f_{c}$ = 234 \si{\hertz}.
+\end{itemize}
+
+
+
+\begin{equation} \label{Eq:CutOff}
+f_{c} = \frac{1}{2 \pi R C} = \frac{1}{2 \pi \cdot68~\si{\kilo\ohm} \cdot 10~\si{\nano\farad}} = 234~\si{\hertz} % if you set in numbers you can use \cdot as a multiplication symbol. Do not use '*' as it denotes a different mathematical operation (convoution)! the '~' helps you setting spaces in the equation environment. To set the correct units, using the siunitx package is recommended.
+\end{equation}
+
+

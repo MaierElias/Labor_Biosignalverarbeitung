@@ -1,0 +1,88 @@
+\section{Ergebnisse und Interpretation}
+
+Im folgenden Abschnitt wurden Excel-Diagramme eingefügt, da nicht hundertprozentig sichergestellt werden konnte, ob die geplotteten Bode-Diagramme aus CSV-Dateien funktionieren.
+
+\subsection{Verstärkung des Transistorverstärkers}
+
+Abbildung \ref{fig:transistor_verstaerkung} zeigt die Verstärkung des Transistorverstärkers bei verschiedenen Eingangsspannungen.
+
+Die Verstärkung wurde berechnet, indem die Ausgangsspannung (Vpp) durch die Eingangsspannung (Vpp) dividiert wurde. Die Daten zeigen, dass die Verstärkung bei höheren Eingangsspannungen zunächst ansteigt und dann stabil bleibt, bevor sie bei noch höheren Eingangsspannungen wieder abnimmt.
+
+Die Charakteristik des Transistorverstärkers wurde mithilfe einer Frequenzanalyse experimentell ermittelt. Dabei wurde die Verstärkerschaltung mit sinusförmigen Eingangssignalen im Bereich von \SI{100}{\hertz} bis \SI{10}{\mega\hertz} angeregt. Für jede Frequenz wurde die Ausgangsspannung $u_o(t)$ gemessen und daraus die Verstärkung in Dezibel berechnet.
+
+\subsection{Frequenzabhängige Verstärkung}
+
+In niedrigen Frequenzen war ein linearer Anstieg des Signals zu beobachten, gefolgt von einem Verstärkungsplateau in mittleren Frequenzen. Die Verstärkung im Plateau blieb beinahe konstant bei ca. 19 dB. Im Hochfrequenzbereich sank die Verstärkung erwartungsgemäß ab, was auf kapazitive und parasitäre Effekte zurückzuführen ist.
+
+\subsection{Vergleich von Messung und Simulation}
+
+Die gemessenen Verstärkungswerte wurden den simulierten Werten aus LTSpice gegenübergestellt. Beide Datensätze wurden im Dezibelmaßstab aufgetragen, um Unterschiede im Frequenzverhalten darzustellen.
+
+% \begin{figure}[H]
+% \centering
+% \begin{tikzpicture}
+% \begin{semilogxaxis}[
+%     width=0.95\textwidth,
+%     height=7cm,
+%     grid=both,
+%     xmin=100, xmax=10000000,
+%     ymin=-10, ymax=22,
+%     xlabel={Frequenz (Hz)},
+%     ylabel={Verstärkung (dB)},
+%     legend style={at={(0.03,0.03)}, anchor=south west},
+%     title={Bode-Diagramm: Simulation vs. Messung}
+% ]
+% \addplot[blue, thick] table[col sep=comma, x=freq, y=gain_dB] {Daten_Labor_3/bode_messung.csv};
+% \addlegendentry{Messung}
+
+% \addplot[red, dashed] table[col sep=comma, x=freq, y=gain_dB] {Daten_Labor_3/bode_simulation_fixed.csv};
+% \addlegendentry{Simulation (LTSpice)}
+% \end{semilogxaxis}
+% \end{tikzpicture}
+% \caption{Frequenzgang des Transistorverstärkers – Vergleich von Messung und Simulation}
+% \label{fig:bode_vergleich}
+% \end{figure}
+
+\subsection{Leistungskennzahl und Interpretation}
+
+Die Leistungskennzahl zur Bewertung der Übereinstimmung zwischen den gemessenen Verstärkungen und den theoretischen Simulationen wurde berechnet. Sie ergibt sich aus:
+
+\[
+\text{Leistungskennzahl} = \frac{A_{\text{measured}}}{A_{\text{theo}}}
+\]
+Die berechnete Leistungskennzahl beträgt 0.98 im Frequenzbereich bis 10 kHz und nimmt bei höheren Frequenzen leicht ab.
+
+\begin{equation}
+\text{Leistungskennzahl} = 0.98 \quad \text{bei Frequenzen bis 10 kHz.}
+\end{equation}
+
+Die Leistung des Transistorverstärkers ist somit nahezu ideal bis zu einer Frequenz von 10 kHz, und weist dann eine Abweichung von der Simulation auf, die mit der Bandbreite und den realen Eigenschaften des Transistors zusammenhängt.
+
+\subsection{Analyse der Abweichungen}
+
+\begin{itemize}
+  \item \textbf{Mittelbereich (\SI{1}{\kilo\hertz} – \SI{100}{\kilo\hertz}):} Messung und Simulation stimmen gut überein, mit nahezu konstanter Verstärkung.
+  \item \textbf{Tiefenbereich:} Leichte Unterschiede im Bereich unter \SI{1}{\kilo\hertz} könnten auf die Eigenschaften der Koppelkondensatoren $C_1$ und $C_2$ zurückzuführen sein.
+  \item \textbf{Hochfrequenz:} Der reale Verstärker zeigt einen früheren Abfall der Verstärkung als in der Simulation, was auf parasitäre Kapazitäten und begrenzte Transitfrequenz des Transistors hindeutet.
+\end{itemize}
+
+Die Ergebnisse bestätigen die Eignung der Simulation zur Vorhersage des Frequenzverhaltens, zeigen jedoch auch die Notwendigkeit, reale Effekte wie Innenwiderstände und nichtideale Bauelemente bei der Bewertung mit einzubeziehen.
+
+\subsection{Grenzen der NPN-Emitterschaltung}
+
+Die Grenzen einer NPN-Emitterschaltung sind unter anderem, dass die Eingangsspannung in einem gewissen Bereich liegen muss, damit der Transistor im aktiven Bereich betrieben wird. Es darf zu keiner Sperrung oder Sättigung kommen. Eine weitere Limitation erfährt die Schaltung dadurch, dass die Ausgangsspannung nicht beliebig schwingen kann, sondern durch die Versorgungsspannung begrenzt ist. Wenn der Transistor nahe der Grenzen des aktiven Bereichs betrieben wird, können Verzerrungen auftreten. Zudem ist der Schaltung durch Stromgrenzen und Verlustleistung ein thermisches Limit gesetzt. Bei zu hohem Kollektorstrom wird eine Überhitzung der Schaltung vorkommen und damit ein potenzielles Risiko für nachfolgende Schaltungselemente oder anwendende Personen. Durch instabile Arbeitspunkteinstellung kann es zu Drifts oder Ungleichmäßigkeiten in der Verstärkung kommen.
+
+\subsubsection{Interpretation der Ergebnisse}
+
+\textbf{Frequenzbereich bis 10 kHz}: 
+Die Verstärkung bleibt stabil und nahezu konstant, was auf eine hohe Effizienz des Transistorverstärkers in diesem Bereich hinweist. Die gemessene Verstärkung stimmt gut mit den theoretischen Simulationen überein. 
+
+\vspace{0.3cm}
+
+\textbf{Frequenzen über 10 kHz}: 
+Bei höheren Frequenzen zeigt sich eine merkliche Abnahme der Verstärkung, was typischerweise auf die begrenzte Bandbreite des Transistors zurückzuführen ist. Diese Abweichungen von den simulierten Werten sind zu erwarten und reflektieren die praktischen Einschränkungen des Verstärkers.
+
+\vspace{0.3cm}
+
+\textbf{Eingangsamplitude}: 
+Die Verstärkungsfaktoren sind über den getesteten Bereich der Eingangsamplituden konstant, was auf einen stabilen Betrieb des Verstärkers unabhängig von der Eingangsspannung hinweist.

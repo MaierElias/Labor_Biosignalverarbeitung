@@ -1,0 +1,86 @@
+\section{Vorbereitende Arbeiten}
+Ziel der vorbereitenden Arbeiten war die Auslegung und Berechnung einer Transistorverstärkerschaltung. Dafür ist es nötig, dass die Frequenzen $\SI{2275}{\hertz}$ und $\SI{457}{\kilo\hertz}$ verstärkt und alle dazwischen liegenden Frequenzen gefiltert werden. Dabei soll eine Verstärkung von 10 für die Zielfrequenzen erreicht werden.
+Eine Versorgungsspannung von $\SI{24}{\volt}$ wird außerdem geliefert.
+
+\subsection{Bauteilauswahl und Berechnung}
+Die Laborübung wurde mit Bauteilwerten durchgeführt, die unter Anleitung der Laboraufsicht für die einzelnen Komponenten ausgewählt wurden, da die vorbereitenden Berechnungen nicht erfolgreich waren. Die Berechnungen sind im Nachhinein der Vollständigkeit halber nachvollzogen worden.
+\subsubsection{Verwendete Gleichungen}
+Aus Laborvorgabe ~\cite{lab-guide} gegebene Formeln:
+\begin{align}
+A_v &= \frac{R_3}{R_4} \label{eq:A_v} \\[1.2ex]
+\frac{U_\text{out}}{U_\text{in}}&=\frac{R_1}{R_1+R_2} \label{eq:frac} \\[1.2ex]
+f_\text{c}&=\frac{1}{2\pi RC} \label{eq:f_c}
+\end{align}
+
+\subsubsection{Berechungen}
+Der Ausgangspunkt der Berechnung ist $R_4$. Dieser sollte klein gewählt werden, damit maximal 10\,\% der Gesamtspannung an ihm abfallen.
+Daraus folgt:
+\begin{align}
+R_4=\SI{100}{\ohm}
+\end{align}
+Aus Gleichung ~\eqref{eq:A_v} und $R_4$ ergibt sich:
+\begin{align}
+R_3=A_v\cdot R_4 = 10\cdot \SI{100}{\ohm} = \SI{1000}{\ohm}
+\end{align}
+$R_1$ sollte so klein gewählt werden, dass immer ein Basisstorm zum Transistor fließen kann, die Batterie länger hält und trotzdem der passive Hochpass funktioniert.
+So wurde $R_1$ wie folgt ausgesucht:
+\begin{align}
+R_1 = \SI{1}{\kilo\ohm}
+\end{align}
+Damit kann aus Gleichung ~\eqref{eq:frac} $R_2$ berechnet werden:
+\begin{align}
+R_2=R_1\cdot\frac{U_\text{in}-U_\text{out}}{U_\text{out}}=\SI{1}{\kilo\ohm}\cdot\frac{\SI{24}{\volt}-\SI{2}{\volt}}{\SI{2}{\volt}}=\SI{10}{\kilo\ohm}
+\end{align}
+$C_2$ wurde wie folgt gewählt, damit eine Gleichspannungsentkopplung und eine saubere Übertragung zum Ausgangssignal gewährleistet werden kann:
+\begin{align}
+C_2 = \SI{10}{\nano\farad}
+\end{align}
+$C_1$ bildet mit dem Einganswiderstand $R_1$ den Hochpassfilter, der die Gleichspannungsanteile herausfiltert und nur das Wechselspannungssignal durchlässt. Die Grenzfrequenz sollte etwas unter der Zielfrequenz liegen, damit diese vollständig ungefiltert die Schaltung durchlaufen darf. Es wurde deshalb eine untere Grenzfrequenz von 1750 gewählt.
+Aus Gleichung ~\eqref{eq:f_c}, $R_1$ und $f_c$ ergibt sich für $C_1$:
+\begin{align}
+C_1 = \frac{1}{2\pi R_1 f_\text{c unten}}=\frac{1}{2\pi\cdot\SI{1}{\kilo\ohm}\cdot\SI{1.75}{\kilo\hertz}}\approx\SI{100}{\nano\farad}
+\end{align}
+Um letztendlich auch die zu hohen Frequenzen zu filtern, wird noch ein Tiefpassfilter benötigt. Also wurde die Schaltung aus Abbildung 1 um einen weiteren Kondensator $C_3$ erweitert (siehe Abbildung 2), sodass schlussendlich ein Bandpassfilter mit den Zielfrequenzen als Grenzen zustande kommt. Gewählt wurde eine Frequenz von \SI{1.59}{\mega\hertz}
+Aus der oberen Grenzfrequenz des Bandpassfilters ergibt sich mit Gleichung ~\eqref{eq:f_c} für $C_3$:
+\begin{align}
+C_3 = \frac{1}{2\pi R_3 f_\text{c oben}}=\frac{1}{2\pi\cdot\SI{1}{\kilo\ohm}\cdot\SI{1.59}{\mega\hertz}}\approx\SI{100}{\pico\farad}
+\end{align}
+
+
+\subsubsection*{Damit ergeben sich folgende Werte für die Komponenten der Schaltung:}
+\begin{itemize}
+  \item $R_1 = \SI{1000}{\ohm}$ \quad (Basisspannungsteiler unten)
+  \item $R_2 = \SI{12000}{\ohm}$ \quad (Basisspannungsteiler oben)
+  \item $R_3 = \SI{1000}{\ohm}$ \quad (Kollektorwiderstand)
+  \item $R_4 = \SI{100}{\ohm}$ \quad (Emitterwiderstand)
+  \item $R_5 = \SI{1}{\mega\ohm}$ \quad (Innenwiderstand des Oszilloskops)
+  \item $C_1 = \SI{100}{\nano\farad}$ \quad (Hochpass-Komponente)
+  \item $C_2 = \SI{10}{\nano\farad}$ \quad (Ausgangskoppelkondensator)
+  \item $C_3 = \SI{100}{\nano\farad}$ \quad (Tiefpass-Komponente)
+\end{itemize}
+
+Diese Kombination der Bauteile ermöglicht einen stabilen Arbeitspunkt, einen geeigneten Verstärkungsfaktor, längere Batterielaufzeiten sowie einen breiten Frequenzbereich für die Spannungsverstärkung und eine Gleichstromentkopplung.
+
+\subsection{Simulation in LTSpice}
+
+Zur Verifikation des Frequenzverhaltens wurde die zuvor dimensionierte OPV-Schaltung in LTSpice simuliert. Das Simulationsmodell verwendet idealisierte Bauelemente und dient dem Vergleich mit den späteren Messergebnissen. Der in LTSpice aufgebaute Schaltplan ist in \hyperref[fig:schaltung_opv_ltspice]{Abbildung~\ref*{fig:schaltung_opv_ltspice}} dargestellt.
+
+Zur Analyse des Frequenzverhaltens wurde ein AC-Sweep im Frequenzbereich von 100~Hz bis 10~MHz durchgeführt. Das resultierende Bodediagramm zeigt die Verstärkung über dem Frequenzverlauf und ist in \hyperref[fig:bode_opv_simulation]{Abbildung~\ref*{fig:bode_opv_simulation}} zu sehen.
+
+Hier sind Beisiele für eingefügte Bilder:
+
+\begin{comment}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{BodeDiagramm_Simulation/Schaltung_BD_3.png} 
+    \caption{LTSpice-Schaltplan der OPV-Schaltung}
+    \label{fig:schaltung_opv_ltspice}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{BodeDiagramm_Simulation/BD_3.png} 
+    \caption{Bodediagramm der simulierten OPV-Schaltung in LTSpice}
+    \label{fig:bode_opv_simulation}
+\end{figure}
+\end{comment}

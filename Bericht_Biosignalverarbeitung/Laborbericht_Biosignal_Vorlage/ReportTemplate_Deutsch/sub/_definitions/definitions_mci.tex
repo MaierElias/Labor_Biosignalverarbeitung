@@ -1,0 +1,155 @@
+% layout
+\usepackage{fancyhdr}
+\setlength{\headheight}{14pt}
+\usepackage{wallpaper}
+\usepackage{float}
+\usepackage[colorlinks=true,urlcolor=black,linkcolor=black]{hyperref}  
+\hypersetup{
+	pdftitle= {Lab1},
+	pdfauthor={xxx},
+	pdfsubject = {xxx},
+}
+\hypersetup{%
+  citecolor=black
+}
+
+\ifthenelse{\boolean{skript}}{
+	% no page numbering on part page
+	\makeatletter
+	\renewcommand\part{%
+	  \if@openright
+		\cleardoublepage
+	  \else
+		\clearpage
+	  \fi
+	  \thispagestyle{empty}%
+	  \if@twocolumn
+		\onecolumn
+		\@tempswatrue
+	  \else
+		\@tempswafalse
+	  \fi
+	  \null\vfil
+	  \secdef\@part\@spart}
+	\makeatother
+}{}
+
+\parindent0pt
+
+% graphics
+\usepackage{epstopdf}
+\usepackage{pst-all}
+\usepackage{float}
+%\usepackage[dvips,clip]{graphicx}
+\usepackage{graphicx}
+\usepackage{exscale,relsize}
+\usepackage{psfrag}
+\usepackage[font={small,it},format=hang]{caption}	% will apply to all captions
+\usepackage[font={small,it},format=hang]{subcaption} % will apply to all subcaptions
+\usepackage[percent]{overpic}
+\usepackage[most]{tcolorbox}
+\newtcolorbox{mytextbox}[1][]{%
+  sharp corners,
+  enhanced,
+  colback=red,
+  height=3.7 cm,
+  attach title to upper,
+  #1
+}
+
+\newcommand\blankpage{
+\null
+\thispagestyle{empty}
+\addtocounter{page}{-1}
+\newpage}
+
+%\usepackage[duplicate]{chapterbib.bib}
+%\usepackage[refsection=part,backend=biber]{biblatex}
+\usepackage{minitoc}
+
+% equations
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{amsxtra}
+\usepackage{xfrac}
+\usepackage{bbding}
+
+% including code
+\usepackage{verbatim}
+\usepackage{moreverb}
+\usepackage{url}
+
+% layout stuff
+\renewcommand{\labelitemi}{-}
+
+% headline
+\pagestyle{fancy}
+%\lhead{\nouppercase{\leftmark}}
+\rhead{\thepage}
+\cfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% footline  
+\lfoot{{\it\footnotesize \lecture}}
+\rfoot{{\it\footnotesize \semester}}
+\renewcommand{\footrulewidth}{0.0pt}
+
+% \ifthenelse{\boolean{skript}}{
+	% \renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+% }{}
+
+\usepackage{listings} 
+\input{"sub/_definitions/definitions_code.tex"}
+\input{"sub/_definitions/definitions_new_commands.tex"}
+
+%\addbibresource{literature.bib}
+
+% für Deckblatt von A. Mehrle
+\newboolean{english}
+%\setboolean{english}{true}		% auskommentieren fuer deutsche Version
+\newboolean{student}
+\setboolean{student}{true}		% auskommentieren fuer Lektorenversion 
+
+% Use of Subfiles
+\usepackage{subfiles}
+
+% Units
+% \usepackage{units}
+
+% Counter for continuous roman counting
+\newcounter{romancount}
+
+% Acronyms
+\usepackage[printonlyused]{acronym}
+\newcommand{\listofacronyms}{\input{"sub/acronyms.tex"}}
+
+% for using \FloatBarrier
+% option "section" so that floats to not cross section border by default
+\usepackage[section]{placeins}
+
+% Including pdf pages
+\usepackage[final]{pdfpages}
+
+% LoX as sections (was chapter)
+\makeatletter
+\renewcommand\listoffigures{%
+  \section*{\listfigurename}%
+  \@mkboth{\MakeUppercase\listfigurename}{\MakeUppercase\listfigurename}%
+  \@starttoc{lof}%
+}
+\renewcommand\listoftables{%
+  \section*{\listtablename}%
+  \@mkboth{\MakeUppercase\listtablename}{\MakeUppercase\listtablename}%
+  \@starttoc{lot}%
+}
+\renewcommand\lstlistoflistings{%
+  \section*{\lstlistlistingname}%
+  \@mkboth{\MakeUppercase\lstlistlistingname}{\MakeUppercase\lstlistlistingname}%
+  \@starttoc{lol}%
+}
+\makeatother
+
+% Blindtext
+\usepackage{blindtext}

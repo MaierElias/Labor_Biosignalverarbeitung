@@ -5,3 +5,66 @@ __pycache__/
 .ruff_cache/
 .pdm-python
 .venv/
+
+# LaTeX
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+*.maf
+*.mtc
+*.mtc0
+
+## Intermediate documents:
+*.dvi
+*.xdv
+*-converted-to.*
+
+## Bibliography auxiliary files:
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+## Build tool auxiliary files:
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+## Build tool directories:
+*latex.out/
+
+## Auxiliary and intermediate files from other packages:
+*.lox
+*.nav
+*.snm
+*.vrb
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.lzo
+*.spl
+*.ist
+*.idx
+*.ilg
+*.ind
+*.out.ps
+*.xdy
+*.tdo

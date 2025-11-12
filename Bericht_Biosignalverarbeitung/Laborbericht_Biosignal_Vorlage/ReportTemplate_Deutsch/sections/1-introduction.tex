@@ -1,0 +1,39 @@
+\begin{mytextbox}
+Diese Vorlage soll Ihnen helfen, Ihren ersten \LaTeX{}-Bericht zu schreiben. Gehen Sie den Text und die Kommentare im Code durch. Der Bericht selbst sollte dann Ihre eigene Arbeit sein. Löschen oder kommentieren Sie also die von der Vorlage vorgegebenen Inhalte! Es sollte selbsterklärend sein, dass keine Kopieren zwischen Gruppen erlaubt ist, das gilt auch für Daten und / oder Diagramme. Sprechen Sie mit Ihren LV-Leitern, wenn etwas unklar ist.
+Für weitere formale Kriterien beachten Sie den Laborleitfaden v3.14 \cite{lab-guide}.
+\end{mytextbox}
+
+\section{Einführung und Aufgaben} % The hirachy is \chapter -> \section -> \subsection -> \subsubsection ...
+Hier sollten Sie den Leser in das Thema des Laborübung einführen und die allgemeinen Aufgaben beschreiben. Im Grunde sollte dies eine kleine Zusammenfassung dessen sein, was getan wird, und die Rahmenbedingungen der Übung kurz beschreiben \cite{Schweizer.2022}:
+Wenn man während des Schreibens eine Refernez einfügen will geht das mit doppelklick\cite{Hollaus.2023}
+
+% this way you can start do an enumeration. A bullteted list would be \begin{itemize} (setting a point using \item stays the same.
+\begin{enumerate}
+    \item Was wird in dieser Übung gemacht?\\
+    Bei dieser Übung wird die Übertragungsfunktion eines RC-Filters gemessen. Es handelt sich um einen passiven Tiefpassfilter mit einem Widerstand und einem Kondensator.
+    \item Wie gehen Sie dabei vor?\\
+    Geben Sie an, dass Sie einen Funktionsgenerator und ein Oszilloskop verwenden, um die Dämpfung oder Verstärkung über mehrere Frequenzen zu messen.
+    \item Was haben Sie verwendet?\\
+    Beschreiben Sie die von Ihnen verwendeten Geräte und geben Sie die genauen Modelle an.
+    \item Wann und wo haben sie die Laborübung gemacht?\\
+    Geben Sie den Ort der Laborübung und den Zeitpunkt der Durchführung an.
+    \item Mit wem haben sie zusammen gearbeitet?\\
+    Geben Sie Ihre Laborpartner:Innen und alle Ausbilder:Innen einschließlich der Tutor:Innen an, die im Labor anwesend sind.
+\end{enumerate}
+
+
+Die Gesamtlänge dieses Abschnitts sollte zwischen 0,5 und 1 Seite betragen. Die Verwendung von Bildern und Gleichungen ist normalerweise nicht erforderlich. Manchmal kann eine Tabelle helfen, die Ausrüstung zu beschreiben, ein Beispiel zeigt Tabelle \ref{tab:Equipment}. % this way you can reference a table by its label which is set below the caption
+
+%The table environment can be a bit annoying. Collumns are set specifying lll after tabular (meaning there will be three collumns). The '&' is aligning the collumns. \cline is producing a drwan line after the first row. One tool that can help you here is the LaTex table generator: https://www.tablesgenerator.com/
+%According to the lab guidelines of the MCI, tables should be simple (no full grid etc.). Also Caption has to be above the table and be referenced in the text.
+
+\begin{table}[ht]
+\caption[Für die Laborübung verwendete Geräte] {Alle wichtigen Geräte, die für die Laborübung verwendet werden. Das bedeutet z.B. Oszilloskope, Multimeter, etc., aber nicht so etwas wie z. B. einen Schraubenzieher. Der Leser sollte in der Lage sein, genau die gleichen Geräte anhand der Beschreibung zu finden.}
+\label{tab:Equipment}
+\begin{tabular}{lll}
+Typ         & Modell                         & Verwendung                                \\ \cline{1-3}
+Oszilloskop & Keysight InfiniiVision 1000-X & \parbox{5,5cm}{Messung von Wellenformen \\ und Dämpfungswerten}  \\
+Funktionsgenerator &  ...                             &  ...                                   \\
+             &                               &                                   
+\end{tabular}
+\end{table}
