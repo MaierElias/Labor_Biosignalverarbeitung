@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,oneside]{article}
+\documentclass[11pt,a4paper]{article}
 
 \usepackage[left=3.5cm,right=2.5cm,top=3cm,bottom=4cm,headsep=7ex,footskip=1.5cm]{geometry}
 \usepackage[german]{babel}
@@ -17,6 +17,10 @@
 \usepackage{import}
 \usepackage{comment}
 
+% Suppress minitoc hint messages written to the log
+\usepackage{silence}
+\WarningFilter{minitoc}{Some hints have been written}
+
 % Für Plots mit Achsen und CSV-Dateien
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
@@ -26,7 +30,7 @@
 % Variablen für Titel und Deckblatt
 \def\titlelength{0}
 \def\type{Labor Report}
-\def\lecture{Biosognalverarbeitung}
+\def\lecture{Biosignalverarbeitung}
 \def\codeStudydegreeyear{MGST-B-3-BB-BS-ILV}
 \def\subtitle{Labor 1}
 \def\semester{Wintersemester 2025/26}
@@ -38,7 +42,7 @@
 \setboolean{skript}{true}
 
 \input{sections/sub/_definitions/definitions_mci.tex}
-\graphicspath{{sub/_fig.s/}{../fig.s/}}
+\graphicspath{{sections/sub/_figs/}{../figs/}}
 
 \begin{document}
 \pagenumbering{Roman}
