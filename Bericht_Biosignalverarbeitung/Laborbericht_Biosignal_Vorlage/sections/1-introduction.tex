@@ -1,22 +1,6 @@
 \section{Einleitung und Zielsetzung}
 
-In diesem Labor lag der Fokus auf dem Erkennen der richtigen Parameter für die Aufnahme der Daten eines IMU's und dem Verwenden eines externen Dataloggers.
-
-\subsection*{Verwendete Geräte}
-\begin{table}[H]
-\centering
-\caption{Verwendete Geräte und Komponenten}
-\begin{tabularx}{\textwidth}{l l X}
-\toprule
-\textbf{Bezeichnung} & \textbf{Typ / Modell} & \textbf{Funktion} \\
-\midrule
-Funktionsgenerator & Hameg HMF2525 & Anregung der Schaltung mit sinusförmigen Eingangssignalen \\
-Oszilloskop & Tektronix TBS1102B & Erfassung der Ausgangsspannung \\
-Tastkopf & 1:1 BNC-Tastkopf & Signalaufnahme ohne Beeinflussung der Schaltung \\
-Steckbrett & Standard, 830 Kontakte & Aufbau der Transistorverstärker-Schaltung \\
-Transistor & NPN (BC547) & Verstärkung des Eingangssignals \\
-Versorgungsspannung & $\SI{24}{\volt}$ DC-Netzgerät & Energiequelle für Verstärkung \\
-Passive Bauelemente & Widerstände, Kondensatoren & Bestimmen des Sperrbands des passiven Filters \\
-\bottomrule
-\end{tabularx}
-\end{table}
+Im Labor 1 lag der Fokus auf dem Erkennen der richtigen Parameter für die Aufnahme der Daten eines IMU's, Inertial Measurement Unit, und dem Verwenden eines externen Dataloggers.
+Dabei wurden hauptsächlich ein Arduino Mikrocontroller vom Typ CH340 und ein MMA8452Q IMU-Sensor verwendet. In einer kleineren Teilaufgabe sollte auch ein Qwiic Open Log Datalogger angeschlossen werden, um die aufgezeichneten Daten zu speichern.
+Allerdings sollte die Teilaufgabe mit Datalogger auf Grund von Zeitmangel nur kurz behandelt werden, sodass diese im Laborbericht 1 nicht weiter beschrieben wird.
+Zur Aufnahme der Daten wurde die Bibliothek Sparkfun benutzt, welche eine einfache Schnittstelle zur Kommunikation mit dem Sensor bietet.

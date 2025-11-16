@@ -1,0 +1,151 @@
+% Beispiel für eine Tabellenformatierung
+% \subsection*{Verwendete Geräte}
+% \begin{table}[H]
+% \centering
+% \caption{Verwendete Geräte und Komponenten}
+% \begin{tabularx}{\textwidth}{l l X}
+% \toprule
+% \textbf{Bezeichnung} & \textbf{Typ / Modell} & \textbf{Funktion} \\
+% \midrule
+% Funktionsgenerator & Hameg HMF2525 & Anregung der Schaltung mit sinusförmigen Eingangssignalen \\
+% Oszilloskop & Tektronix TBS1102B & Erfassung der Ausgangsspannung \\
+% Tastkopf & 1:1 BNC-Tastkopf & Signalaufnahme ohne Beeinflussung der Schaltung \\
+% Steckbrett & Standard, 830 Kontakte & Aufbau der Transistorverstärker-Schaltung \\
+% Transistor & NPN (BC547) & Verstärkung des Eingangssignals \\
+% Versorgungsspannung & $\SI{24}{\volt}$ DC-Netzgerät & Energiequelle für Verstärkung \\
+% Passive Bauelemente & Widerstände, Kondensatoren & Bestimmen des Sperrbands des passiven Filters \\
+% \bottomrule
+% \end{tabularx}
+% \end{table}
+
+% ------------------
+
+% Beispiel für eine Gleichung:
+% \begin{align}
+% A_v &= \frac{R_3}{R_4} \label{eq:A_v} \\[1.2ex]
+% \frac{U_\text{out}}{U_\text{in}}&=\frac{R_1}{R_1+R_2} \label{eq:frac} \\[1.2ex]
+% f_\text{c}&=\frac{1}{2\pi RC} \label{eq:f_c}
+% \end{align}
+
+% Beispiel einer Aufzählung:
+% \subsubsection*{Damit ergeben sich folgende Werte für die Komponenten der Schaltung:}
+% \begin{itemize}
+%   \item $R_1 = \SI{1000}{\ohm}$ \quad (Basisspannungsteiler unten)
+%   \item $R_2 = \SI{12000}{\ohm}$ \quad (Basisspannungsteiler oben)
+%   \item $R_3 = \SI{1000}{\ohm}$ \quad (Kollektorwiderstand)
+%   \item $R_4 = \SI{100}{\ohm}$ \quad (Emitterwiderstand)
+%   \item $R_5 = \SI{1}{\mega\ohm}$ \quad (Innenwiderstand des Oszilloskops)
+%   \item $C_1 = \SI{100}{\nano\farad}$ \quad (Hochpass-Komponente)
+%   \item $C_2 = \SI{10}{\nano\farad}$ \quad (Ausgangskoppelkondensator)
+%   \item $C_3 = \SI{100}{\nano\farad}$ \quad (Tiefpass-Komponente)
+% \end{itemize}
+
+% Beisiele für eingefügte Bilder:
+% \begin{comment}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{BodeDiagramm_Simulation/Schaltung_BD_3.png} 
+%     \caption{LTSpice-Schaltplan der OPV-Schaltung}
+%     \label{fig:schaltung_opv_ltspice}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{BodeDiagramm_Simulation/BD_3.png} 
+%     \caption{Bodediagramm der simulierten OPV-Schaltung in LTSpice}
+%     \label{fig:bode_opv_simulation}
+% \end{figure}
+% \end{comment}
+
+% ------------------
+
+% Beispiel für eine Tabelle:
+% \begin{table}[H]
+% \centering
+% \begin{tabular}{ll}
+% \toprule
+% \textbf{Gerät} & \textbf{Verwendung} \\
+% \midrule
+% Funktionsgenerator & Signalquelle für Eingangssignale (Sinus, Rechteck) \\
+% Oszilloskop & Messung der Ausgangsspannung und Analyse des Frequenzgangs \\
+% Steckbrett & Aufbau der Verstärkerschaltung \\
+% BNC-Tastköpfe & Signalabgriff am Eingang und Ausgang des Verstärkers \\
+% Multimeter & Messung der Versorgungsspannung und Stromstärke \\
+% \bottomrule
+% \end{tabular}
+% \caption{Verwendete Geräte im Laborversuch}
+% \label{tab:geraete_lab3}
+% \end{table}
+
+% Beispiel für ein Bild:
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.5\linewidth]{images/Ermitterverstärkerschaltung.jpg} 
+%     \caption{Emitterverstärkerschaltung für den Versuch}
+%     \label{fig:emitterschaltung}
+% \end{figure}
+
+% Beispiel für eine Aufzählung:
+% Der Ablauf des Experiments war wie folgt:
+% \begin{enumerate}
+%   \item Aufbau der Verstärkerschaltung auf dem Steckbrett gemäß den Vorgaben ~\cite{lab-guide}, Simulationsergebnissen und Berechnungen.
+%   \item Verbindung des Funktionsgenerators und Oszilloskops mit der Schaltung über BNC-Tastköpfe und Splitter, um das Eingangssignal und die Ausgangsspannung zu visualisieren.
+%   \item Einspeisung sinusförmiger Signale mit variablen Amplituden, von \SI{1}{\milli\volt_{pp}} bis \SI{1}{\volt_{pp}}.
+%   \item Dokumentation der Ausgangsamplitude bei verschiedenen Frequenzen, um die Verstärkungscharakteristik des Verstärkers zu überprüfen.
+%   \item Aufzeichnung des Frequenzgangs und Erstellung des Bode-Diagramms basierend auf den experimentellen Daten.
+% \end{enumerate}
+
+% ------------------
+
+% \begin{figure}[H]
+% \centering
+% \begin{tikzpicture}
+% \begin{semilogxaxis}[
+%     width=0.95\textwidth,
+%     height=7cm,
+%     grid=both,
+%     xmin=100, xmax=10000000,
+%     ymin=-10, ymax=22,
+%     xlabel={Frequenz (Hz)},
+%     ylabel={Verstärkung (dB)},
+%     legend style={at={(0.03,0.03)}, anchor=south west},
+%     title={Bode-Diagramm: Simulation vs. Messung}
+% ]
+% \addplot[blue, thick] table[col sep=comma, x=freq, y=gain_dB] {Daten_Labor_3/bode_messung.csv};
+% \addlegendentry{Messung}
+
+% \addplot[red, dashed] table[col sep=comma, x=freq, y=gain_dB] {Daten_Labor_3/bode_simulation_fixed.csv};
+% \addlegendentry{Simulation (LTSpice)}
+% \end{semilogxaxis}
+% \end{tikzpicture}
+% \caption{Frequenzgang des Transistorverstärkers – Vergleich von Messung und Simulation}
+% \label{fig:bode_vergleich}
+% \end{figure}
+
+% ------------------
+
+% Beispiel für zentrierten Text:
+% \[
+% \text{Leistungskennzahl} = \frac{A_{\text{measured}}}{A_{\text{theo}}}
+% \]
+
+% ------------------
+
+% Beispiel für eine nummerierte Gleichung
+% \begin{equation}
+% \text{Leistungskennzahl} = 0.98 \quad \text{bei Frequenzen bis 10 kHz.}
+% \end{equation}
+
+% ------------------
+
+% Beispiel für eine Aufzählung mit fettgedruckten Überschriften:
+% \begin{itemize}
+%   \item \textbf{Mittelbereich (\SI{1}{\kilo\hertz} – \SI{100}{\kilo\hertz}):} Messung und Simulation stimmen gut überein, mit nahezu konstanter Verstärkung.
+%   \item \textbf{Tiefenbereich:} Leichte Unterschiede im Bereich unter \SI{1}{\kilo\hertz} könnten auf die Eigenschaften der Koppelkondensatoren $C_1$ und $C_2$ zurückzuführen sein.
+%   \item \textbf{Hochfrequenz:} Der reale Verstärker zeigt einen früheren Abfall der Verstärkung als in der Simulation, was auf parasitäre Kapazitäten und begrenzte Transitfrequenz des Transistors hindeutet.
+% \end{itemize}
+
+
+% ------------------
+% Beispeiel für vertikalen Abstand
+% \vspace{0.3cm}
