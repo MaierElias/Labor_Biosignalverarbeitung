@@ -15,4 +15,3 @@ Damit die LaTeX-Dokumente korrekt kompiliert werden können, wird empfohlen folg
 Im Unterordner `Labor_1` befindet sich der Code für das erste Laborprojekt.
 
 Im Unterordner `Bericht_Biosignalverarbeitung` befindet sich der Bericht zum Laborprojekt.
-
