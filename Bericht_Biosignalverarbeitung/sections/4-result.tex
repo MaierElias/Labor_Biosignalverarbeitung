@@ -1,1 +1,82 @@
 \section{Ergebnisse und Interpretation}
+In diesem Abschnitt werden die Ergebnisse der im Abschnitt Versuchsaufbau und Durchführung beschriebenen Abgabe präsentiert und interpretiert.
+\subsection{Abgabe 1}
+\subsubsection{Aufgabe 5 (a)}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/Lab1_IMU_6Achsentest_Accelerometer.png} 
+    \caption{Abgabe 1 - Aufgabe 5 (a)}
+    \label{fig:6Achsentest_Accelerometer}
+\end{figure}
+In Abbildung \ref{fig:6Achsentest_Accelerometer} ist die gemessene Beschleunigung des 6-Achsen-Tests dargestellt.
+Die X-, Y- und Z-Achse sind farblich unterschiedlich gekennzeichnet.
+Es ist zu erkennen, dass die Beschleunigung in den drei Achsen variiert,
+wenn der Sensor in verschiedene Positionen gebracht wird. Dies bestätigt die Funktionsfähigkeit des Beschleunigungssensors.
+\newline
+Die Farben der entsprechenden Achsen sind wie folgt:
+\begin{itemize}
+    \item X-Achse: Rot
+    \item Y-Achse: Grün
+    \item Z-Achse: Blau
+\end{itemize}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/Lab1_IMU_6Achsentest_Accelerometer_Filtered.png} 
+    \caption{Abgabe 1 - Aufgabe 6}
+    \label{fig:6Achsentest_Filtered}
+\end{figure}
+In der obigen Abbildung sind die gleichen Achsen wie in Abbildung \ref{fig:6Achsentest_Accelerometer} verwendet worden.
+Der eingesetzte Butterworth-Filter 4. Ordnung hat erreicht, dass die hochfrequenten Anteile des Signals deutlich reduziert wurden.
+Dadurch ist das Signal deutlich geglättet und Rauschen wurde entfernt. Da dieser Filter eine hohe Flankensteilheit besitzt,
+werden die niederfrequenten Anteile des Signals kaum beeinflusst, was zu einer guten Signalqualität führt.
+
+\subsubsection{Aufgabe 8}
+An dieser Stelle muss angemerkt werden, dass die in Abbildung \ref{fig:10s-1Achse_Accelerometer} dargestellten Daten nach dem Anpassen der falsch eingestellten Messparameter aufgezeichnet wurden.
+Da wir keine falschen Messwerte aus Aufgabe 8 haben, werden wir uns auf die Beantwortung der Fragen aus den Aufgaben 9 und 12 konzentrieren.
+
+\subsubsection{Aufgabe 9 und 12}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Lab1_10s-1Achse_3Anlauf_Accelerometer.png} 
+    \caption{Abgabe 1 - Aufgabe 9}
+    \label{fig:10s-1Achse_Accelerometer}
+\end{figure}
+In Abbildung \ref{fig:10s-1Achse_Accelerometer} ist die gemessene Beschleunigung des 10 Sekunden Tests auf einer Achse dargestellt.
+Die X-, Y- und Z-Achse sind farblich wie folgt gekennzeichnet:
+\begin{itemize}
+    \item X-Achse: Blau
+    \item Y-Achse: Orange
+    \item Z-Achse: Grün
+\end{itemize}
+Es ist zu erkennen, dass die meiste Beschleunigung in der X-Achse auftritt, was darauf hinweist, dass die Bewegung hauptsächlich entlang dieser Achse stattgefunden hat.
+Die Y- und Z-Achsen zeigen nur geringe Schwankungen, was darauf hindeutet, dass die Bewegung in diesen Richtungen minimal war.
+\newline
+Folgende Anpassungen mussten vorgenommen werden, um die Messdaten korrekt aufzuzeichnen:
+
+\begin{itemize}
+    \item Die Baudrate wurde auf 57600 Baud (Bits per second) geändert, damit die Schnittstelle und der Arduino/Sparkfun die gleiche Baudrate haben.
+    \item setscale wurde von 2G auf 8G geändert, um die höheren Beschleunigungswerte korrekt zu erfassen und kein Clipping entsteht (Plateaus).
+    \item Die Sample-Rate wurde von 1,56 Hz auf 800 Hz (\texttt{ODR\_1} zu \texttt{ODR\_800}) erhöht, um dem Nyquist-Shannon-Abtasttheorem gerecht zu werden und Aliasing-Effekte zu vermeiden. 
+    Bei einer Abtastrate von 800 Hz beträgt die Nyquist-Frequenz 400 Hz, was für die Erfassung der relevanten Signalkomponenten bei unserer Beschleunigungsmessung ausreichend ist.
+\end{itemize}
+Die Informationen zu den Anpassungen wurden dem Datenblatt des Sensors auf Seite 1 entnommen \cite{NXP2023MMA8452Q}.
+Mögliche Parameter für die Auswahl der setscale sind 2G, 4G und 8G.
+Um Plateaus zu vermeiden, sollte der höchste Wert (8G) gewählt werden, um Clipping zu vermeiden.
+
+\subsubsection{Aufgabe 10}
+Aus den aufgezeichneten Daten der Abbildung \ref{fig:10s-1Achse_Accelerometer} wurde die Berechnung der Messfrequenz durchgeführt.
+Zu unserer Überraschung ergab die Berechnung eine Abtastfrequenz von ca. 270 Hz, obwohl die Sample-Rate auf 800 Hz eingestellt war.
+Dies dürfte vor allem auf die eingestellte Baudrate von 57600 Baud zurückzuführen sein,
+da die Übertragung der Daten über die serielle Schnittstelle begrenzt ist.
+
+\subsubsection{Aufgabe 13}
+Diese Aufgabe konnte leider nicht durchgeführt werden, da das Aufzeichnen von Messdaten mit Energieversogung per 9V Blockbatterie nicht funktionierte.
+Auch die Verwendung des Reset-Buttons führte nicht zum Erfolg.
+\newline
+Welcher Unterschied besteht zwischen der Aufzeichnung mit und ohne Batterieversorgung?
+Die maximale Messfrequenz ist durch die Schreibgeschwindigkeit der SD-Karte begrenzt.
+Beim Auslesen der Daten über die serielle Schnittstelle ist die Übertragungsrate (Baudrate) der limitierende Faktor,
+dieser ist jedoch deutlich höher als die Schreibgeschwindigkeit der SD-Karte.
