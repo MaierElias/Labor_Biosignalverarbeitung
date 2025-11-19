@@ -1,21 +1,35 @@
 \section{Vorbereitende Arbeiten}
-Im Voraus zur Laborübung wurden der Treiber für den Arduino Mikrokontroller installiert und nach Sakaianleitung erste Tests durchgeführt,
-bei denen der Umgang mit IMU, dem seriellen Monitor sowie Plotter ausprobiert wurde und erste Daten gespeichert werden konnten.
-Zudem wurde als vorbereitende Maßnahme das Python-Skript zur Visualisierung der vom IMU gewonnenen CSV-Dateien durchgearbeitet und mit genannten Testdateien getestet.
+Die Aufgaben 1 und 2 sind als vorbereitende Maßnahmen bearbeitet worden.
+Im Rahmen der Aufgabe 1 wurden der Treiber für den Arduino Mikrokontroller installiert und der Blinktest durchgeführt.
+Die zweite Aufgabe beinhaltete das Einbinden der Sparkfun spezifischen Bibliotheken für Board und Sensor in die Arduino IDE.
+Zudem wurde mit einem Beipsielskript erstmals Daten ausgelesen, über den seriellen Plotter ausgegeben und mit dem seriellen Monitor gespeichert.
 
 \subsection{Verwendete Hardware}
 Die Laboreinheit wurde mit den folgenden Hardware-Komponenten durchgeführt:
+
 \begin{itemize}
-    \item Mikrocontroller (Sparkfun)
-    \item Analog Digital Converter
-    \item Data-Logger
-    \item microSD-Karte
-    \item Beschleunigungssenor (IMU)
-    \item 9V Blockbatterie
-    \item 9V Batterieanschluss
-    \item Micro-USB-Kabel
-    \item Qwiic Kabel
-    \item Jumper Kabel
+    \item Fixe Komponenten für alle Aufgaben
+        \begin{itemize}
+            \item Mikrocontroller (Sparkfun)
+            \item Micro-USB-Kabel
+            \item Beschleunigungssenor (MMA8452Q)
+            \item Verbindungskabel (Qwiic)
+        \end{itemize}
+    \item benötigte Komponenten für mobiles Setup
+        \begin{itemize}
+            \item 9V Blockbatterie
+            \item 9V Batterieanschluss
+            \item Datalogger (Qwiic Open Log)
+            \item Micro-SD Karte
+            \item Verbingunskabel (Qwiic)
+        \end{itemize}
+    \item Verwendete Software
+        \begin{itemize}
+            \item Arduino IDE
+            \item Python 3.13.9 für unser Python Visualisierungskript
+            \item .ino Skript Lab1Code1.ino für die Datenerfassung
+        \end{itemize}
 \end{itemize}
-Für die verschiednen Aufgaben wurden unterschiedliche Kombinationen der oben genannten Hardware-Komponenten verwendet.
+
+Für die verschiedenen Aufgaben wurden unterschiedliche Kombinationen der oben genannten Hardware-Komponenten verwendet.
 Bei entsprechenden Aufgaben werden die Hardware Kombinationen und der genaue Versuchsaufbau näher beschrieben.
