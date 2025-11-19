@@ -1,50 +1,31 @@
 \section{Versuchsaufbau und Durchführung}
+Im Folgenden Abschnitt wird der Versuchsaufbau beschrieben und die Durchführung des Experiments erläutert.
+\subsection{Versuchsaufbau}
+Die zum Versuchsaufbau verwendeten Geräte und Materialien sind im Abschnitt Vorbereitende Arbeiten aufgelistet.
+\subsection{Durchführung}
+\subsubsection{Aufgabe 1 und 2 - Teil 1-4}
+Aufgabe 1 und 2 (Teil 1-4) wurden bereits im Abschnitt Vorbereitende Arbeiten beschrieben.
+\subsubsection{Aufgabe 2 - Teil  5-6}
+Mithilfe der Analyse aus Punkt 4, konnte Punkt 5 (Koordinatensystem) beantwortet werden.
+Anschließend wurden die Daten die im Serial Monitor angezeigt und per copy-paste in ein txt-Datei gespeichert (Punkt 6).
+\subsubsection{Aufgabe 3}
+Zuerst wurde, wie in Punkt 1 beschrieben, die Funktion des Dataloggers überprüft, indem das Testprogramm ausgeführt wurde und anschließen die Daten im PC-Interface betrachtet wurden. Hier gab es zuerst Schwierigkeiten, die aber nach einigen Versuchen überwunden werden konnten.
+Daraufhin wurde die Verbindung des Computers mit dem Sparkfun Board getrennt und die Stromversorgung über die 9V Batterie hergestellt (Punkt 2). Aufgrund von massiven Problemen die trotz troubleshooting nicht behoben werden konnten wurde auf Anweisung des Lektors die Aufgabe abgebrochen und zur nächsten weitergegangen.
+\subsubsection{Aufgabe 4}
+In der Aufgabe 4 wurden die Daten der mikro-SD-Karte des Dataloggers ausgelesen und im bereitgestellten Jupyter-Notebook ausgewertet.
+\subsection {Abgabe 1}
+\begin{minipage}{\textwidth}
+In der Abgabe wurden folgende Punkte erledigt:
+\begin{itemize}
+    \item 5 (a)
+    \item 6
+    \item 8 (a)
+    \item 9
+    \item 10
+    \item 12
+\end{itemize}
+\end{minipage}
 
-Die Verstärkerschaltung, die gemäß der Simulation aufgebaut wurde, befindet sich auf einem Steckbrett. Die Stromversorgung für den Versuch wurde über ein externes Netzteil mit einer Spannung von $V_{CC} = \SI{24}{\volt}$ bereitgestellt. Der Funktionsgenerator speiste ein sinusförmiges Eingangssignal mit einer variablen Frequenz im Bereich von \SI{100}{\hertz} bis \SI{10}{\mega\hertz} in die Schaltung ein. Die gemessene Ausgangsspannung wurde kontinuierlich aufgezeichnet, um die Verstärkung des Verstärkers und den Frequenzgang zu analysieren.
+Die Aufgaben wurden entsprechend der Anweisungen erledigt und im Jupyter-Notebook dokumentiert.
 
-\subsection*{Aufbau des Labors}
-
-Zu Beginn des Versuchs wurde der Laboraufbau gemäß den Vorgaben aus der Laborvorgabe ~\cite{lab-guide} realisiert. Der Versuch wurde unter Verwendung der im Labor verfügbaren Geräte durchgeführt, die eine präzise Messung der Ausgangsspannung ermöglichten. Die folgende Abbildung zeigt den Gesamtaufbau des Labors mit den verwendeten Messgeräten.
-
-\subsection*{Geräteübersicht}
-
-Im Rahmen des Versuchs wurden folgende Geräte verwendet:
-
-\begin{table}[H]
-\centering
-\begin{tabular}{ll}
-\toprule
-\textbf{Gerät} & \textbf{Verwendung} \\
-\midrule
-Funktionsgenerator & Signalquelle für Eingangssignale (Sinus, Rechteck) \\
-Oszilloskop & Messung der Ausgangsspannung und Analyse des Frequenzgangs \\
-Steckbrett & Aufbau der Verstärkerschaltung \\
-BNC-Tastköpfe & Signalabgriff am Eingang und Ausgang des Verstärkers \\
-Multimeter & Messung der Versorgungsspannung und Stromstärke \\
-\bottomrule
-\end{tabular}
-\caption{Verwendete Geräte im Laborversuch}
-\label{tab:geraete_lab3}
-\end{table}
-
-\subsection*{Verstärkerschaltung}
-
-Die Verstärkerschaltung, die als Ausgangspunkt für die Messungen diente, wurde auf einem Steckbrett aufgebaut. Der verwendete Verstärker war eine klassische OPV-Schaltung, deren Eigenschaften mit Hilfe einer LTSpice-Simulation vorab überprüft wurden. Die folgende Abbildung zeigt die schematische Darstellung der Emitterverstärkerschaltung, die im Experiment verwendet wurde.
-
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.5\linewidth]{images/Ermitterverstärkerschaltung.jpg} 
-%     \caption{Emitterverstärkerschaltung für den Versuch}
-%     \label{fig:emitterschaltung}
-% \end{figure}
-
-\subsection*{Versuchsablauf}
-
-Der Ablauf des Experiments war wie folgt:
-\begin{enumerate}
-  \item Aufbau der Verstärkerschaltung auf dem Steckbrett gemäß den Vorgaben ~\cite{lab-guide}, Simulationsergebnissen und Berechnungen.
-  \item Verbindung des Funktionsgenerators und Oszilloskops mit der Schaltung über BNC-Tastköpfe und Splitter, um das Eingangssignal und die Ausgangsspannung zu visualisieren.
-  \item Einspeisung sinusförmiger Signale mit variablen Amplituden, von \SI{1}{\milli\volt_{pp}} bis \SI{1}{\volt_{pp}}.
-  \item Dokumentation der Ausgangsamplitude bei verschiedenen Frequenzen, um die Verstärkungscharakteristik des Verstärkers zu überprüfen.
-  \item Aufzeichnung des Frequenzgangs und Erstellung des Bode-Diagramms basierend auf den experimentellen Daten.
-\end{enumerate}
+Aufgabe 13 wurde nicht erledigt, da die Datenaufzeichnung mit dem Datalogger per 9V Batterie nicht funktionierte.
