@@ -1,0 +1,62 @@
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\mb}{\mathbf}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\Be}{\begin{equation}}
+\newcommand{\Ee}{\end{equation}}
+
+\newcommand{\Bg}{\begin{gather}}
+\newcommand{\Eg}{\end{gather}}
+
+\newcommand{\Bi}{\begin{itemize}}
+\newcommand{\Ei}{\end{itemize}}
+
+\newcommand{\Bf}{\begin{fig.}}
+\newcommand{\Ef}{\end{fig.}}
+
+\newcommand{\Bt}{\begin{table}}
+\newcommand{\Et}{\end{table}}
+
+\newcommand{\Btr}{\begin{tabular}}
+\newcommand{\Etr}{\end{tabular}}
+
+\newcommand{\Bc}{\begin{center}}
+\newcommand{\Ec}{\end{center}}
+
+\newcommand{\FE}{finite element}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\dt}{{t+\Delta t}}
+\newcommand{\CR}[1]{\color{black}#1}
+\newcommand{\inp}[1]{{\color{blue}{\footnotesize\listinginput{1}{#1}}}}
+
+\newcommand{\ANSYS}{{\sf ANSYS}}
+\newcommand{\MATLAB}{{\sf MATLAB}}
+\newcommand{\SHELL}[1]{{\sf SHELL#1}}
+\newcommand{\SOLID}[1]{{\sf SOLID#1}}
+\newcommand{\BEAM}[1]{{\sf BEAM#1}}
+\newcommand{\LINK}[1]{{\sf LINK#1}}
+\newcommand{\PLANE}[1]{{\sf PLANE#1}}
+\newcommand{\SURF}[1]{{\sf SURF#1}}
+\newcommand{\BAR}[1]{{\sf BAR#1}}
+
+\newcommand{\ANS}[4]{
+{\footnotesize
+\noindent#1\bigskip
+
+\noindent#2\bigskip
+
+\noindent {\it Notes}\\
+#3\bigskip
+
+\noindent {\it Menu Paths}\\
+#4
+}
+}
+
+
+
+% by A. Mehrle
+\newcommand{\measure}{\psline[linewidth=0.5pt,arrowsize=4pt]}
+\newcommand{\xtick}[1]{\measure(#1,-0.1)(#1,0.1)}
+\newcommand{\ytick}[1]{\measure(-0.1,#1)(0.1,#1)}
+\newcommand{\link}{\psline[linewidth=2pt]}
+\newcommand{\hatch}{\psframe[fillstyle=vlines,linestyle=none,hatchwidth=0.25pt]}
