@@ -6,7 +6,7 @@ Es wurden im Rahmen dieser Laboreinheit folgende Komponenten und Software verwen
         \hline
         Typ & Modell & Verwendung \\
         \hline
-        Microcontroller & Arduino Uno R3 & Zur Erfassung der Sensordaten und Übertragung an den Computer \\
+        Microcontroller & Sparkfun RedBoard & Zur Erfassung der Sensordaten und Übertragung an den Computer \\
         Sensor & EMG/EKG Sensor & Zur Messung der elektrischen Signale des Herzens \\
         Software & Arduino IDE 1.8.19 & Zur Programmierung des Arduino Mikrocontrollers \\
         Software & Python 3.9 (Jupyter Notebook / VS Code) & Zur Verarbeitung, Aufzeichnung und Visualisierung der Sensordaten \\
@@ -25,8 +25,25 @@ Das Skript zum Aufzeichen und Speichern der Sensor Rawdaten wurde von Team der L
 Auch für die Visualisierung der Daten wurde ein Skript zur Verfügung gestellt, welches unter Anderem auf Grund von Artefakten leicht auf unseren spezifischen Fall angepasst werden musste.
 --> hier vllt Link zu Datei oder Repository einfügen <--
 
-Vor Beginn der eigentlichen Messungen musste der in \ref{tab:verwendete_komponenten} erwähnte Arduino Uno R3 Mikrocontroller über die drei Jumper Kabel mit dem EMG/EKG Sensor verbunden werden.
+Vor Beginn der eigentlichen Messungen musste der in Tabelle \ref{tab:verwendete_komponenten} erwähnte Sparkfun RedBoard Mikrocontroller über die drei Jumper Kabel mit dem EMG/EKG Sensor verbunden werden.
 Dazu wurden die Kabel wie folgt angeschlossen: HIER BILD VON AUFBAU EINFÜGEN, BESCHRIFTUNG DIESES MAL GETIPPT UND NICHT VON HAND
 
 Die Elektroden des Sensors wurden anschließend an den Probanden/ die Probanden angebracht. Die drei Elektroden sind am Manubrium, am linken V6 Ableitpunkt und am C7 der Halswirbelsäule angeklebt worden.
-HIER MUSS AUCH NOCH EIN BILD HIN, ELIAS HAT ES GERADE NOCH
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/GNDelectrode_C7.png}
+    \caption[Ground-Elektrode auf C7]{Position der Ground-Elektrode auf dem C7 der Halswirbelsäule}
+    \label{fig:gnd_electrode_c7}
+\end{figure}
+
+in der Abbildung \ref{fig:gnd_electrode_c7} ist die Position der Ground-Elektrode auf dem C7 der Halswirbelsäule zu sehen.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/Manubrium_and_6rip.png}
+    \caption[Position von V6 und Spannungsquelle]{Position der V6-Elektrode auf dem linken V6 Ableitpunkt und der Spannungsquelle auf dem Manubrium}
+    \label{fig:v6_electrode_left_and_manubrium}
+\end{figure}
+
+In der Abbildung \ref{fig:v6_electrode_left_and_manubrium} ist die Position der V6-Elektrode auf dem linken V6 Ableitpunkt - rotes Kabel - sowie der Spannungsquelle auf dem Manubrium - blaues Kabel - zu sehen.
