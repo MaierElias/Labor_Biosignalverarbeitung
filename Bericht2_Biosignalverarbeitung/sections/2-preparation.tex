@@ -1,5 +1,6 @@
 \section{Vorbereitende Arbeiten}
 Es wurden im Rahmen dieser Laboreinheit folgende Komponenten und Software verwendet:
+
 \begin{table}[ht]
     \centering
     \begin{tabularx}{\textwidth}{l l X}
@@ -25,24 +26,30 @@ Das Skript zum Aufzeichen und Speichern der Sensor Rawdaten wurde von Team der L
 Auch für die Visualisierung der Daten wurde ein Skript zur Verfügung gestellt, welches unter Anderem auf Grund von Artefakten leicht auf unseren spezifischen Fall angepasst werden musste.
 --> hier vllt Link zu Datei oder Repository einfügen <--
 
-Vor Beginn der eigentlichen Messungen musste der in Tabelle \ref{tab:verwendete_komponenten} erwähnte Sparkfun RedBoard Mikrocontroller über die drei Jumper Kabel mit dem EMG/EKG Sensor verbunden werden.
-Dazu wurden die Kabel wie folgt angeschlossen: HIER BILD VON AUFBAU EINFÜGEN, BESCHRIFTUNG DIESES MAL GETIPPT UND NICHT VON HAND
 
-Die Elektroden des Sensors wurden anschließend an den Probanden/ die Probanden angebracht. Die drei Elektroden sind am Manubrium, am linken V6 Ableitpunkt und am C7 der Halswirbelsäule angeklebt worden.
-
-\begin{figure}[ht]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/GNDelectrode_C7.png}
-    \caption[Ground-Elektrode auf C7]{Position der Ground-Elektrode auf dem C7 der Halswirbelsäule}
+    \includegraphics[width=0.7\textwidth]{figures/versuchsaufbau.png}
+    \caption{Verbindung des EMG/EKG Sensors mit dem Sparkfun RedBoard Mikrocontroller}
+    \label{fig:versuchsaufbau}
+\end{figure}
+
+Vor Beginn der eigentlichen Messungen musste der in Tabelle \ref{tab:verwendete_komponenten} erwähnte Sparkfun RedBoard Mikrocontroller über die drei Jumper Kabel mit dem EMG/EKG Sensor verbunden werden wie in Abbildung \ref{fig:versuchsaufbau} zu erkennen ist.
+Die Elektroden des Sensors wurden anschließend an den Probanden / die Probanden angebracht. Die drei Elektroden sind am Manubrium, am linken V6 Ableitpunkt und am C7 der Halswirbelsäule angeklebt worden.\\
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/GNDelectrode_C7.png}
+    \caption{Position der Ground-Elektrode auf dem C7 der Halswirbelsäule}
     \label{fig:gnd_electrode_c7}
 \end{figure}
 
 in der Abbildung \ref{fig:gnd_electrode_c7} ist die Position der Ground-Elektrode auf dem C7 der Halswirbelsäule zu sehen.
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/Manubrium_and_6rip.png}
-    \caption[Position von V6 und Spannungsquelle]{Position der V6-Elektrode auf dem linken V6 Ableitpunkt und der Spannungsquelle auf dem Manubrium}
+    \includegraphics[width=0.7\textwidth]{figures/Manubrium_and_6rip.png}
+    \caption{Position der V6-Elektrode auf dem linken V6 Ableitpunkt und der Spannungsquelle auf dem Manubrium}
     \label{fig:v6_electrode_left_and_manubrium}
 \end{figure}
 
