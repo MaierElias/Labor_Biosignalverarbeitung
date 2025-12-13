@@ -50,15 +50,15 @@ def d_ecg_peaks(d_ecg, peaks_d_ecg, time, heightper, distanceper):
 def Rwave_peaks(ecg, d_ecg, Rwave_peaks_d_ecg, time):   
     Rwave = np.empty([len(Rwave_peaks_d_ecg)-1]) 
     for i in range(0, len(Rwave)): # for all peaks
-        ecgrange = ecg[Rwave_peaks_d_ecg[i]:Rwave_peaks_d_ecg[i+1]] # create array that contains of the ecg within the d_ecg_peaks
+        ecgrange = ecg.iloc[Rwave_peaks_d_ecg[i]:Rwave_peaks_d_ecg[i+1]] # create array that contains of the ecg within the d_ecg_peaks
         percentage = np.round(len(ecgrange)*0.2)
         maxvalue = np.array(list(np.where(ecgrange == np.max(ecgrange[0:int(percentage)])))) # find the index of the max value of ecg
         Rwave[i] = Rwave_peaks_d_ecg[i] + maxvalue[0,0]  # save this index         
     
     Rwave = Rwave.astype(np.int64)
-    Rwave_t = time[Rwave]
+    Rwave_t = time.iloc[Rwave]
     Rwave_t = Rwave_t.reset_index(drop = True)
-    Rwave_t = Rwave_t.drop(columns = ['index'])
+    #Rwave_t = Rwave_t.drop(columns = ['index'])
    
     return Rwave_t
 
