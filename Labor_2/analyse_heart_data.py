@@ -12,7 +12,7 @@ def analyze_ecg(file_path, name):
     time = pd.Series(np.arange(len(ecg)))
     
     d_ECG, peaks_d_ecg = ekg.decg_peaks(ecg, time)
-    Rwave_peaks_d_ecg, threshold = ekg.d_ecg_peaks(d_ECG, peaks_d_ecg, time, 1, 0.2)
+    Rwave_peaks_d_ecg, threshold = ekg.d_ecg_peaks(d_ECG, peaks_d_ecg, time, 0.9, 0.2)
     Rwave_t = ekg.Rwave_peaks(ecg, d_ECG, Rwave_peaks_d_ecg, time)
     
     sampling_rate = 1000  # Hz
