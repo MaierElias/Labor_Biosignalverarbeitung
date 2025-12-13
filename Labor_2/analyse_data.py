@@ -74,9 +74,9 @@ def create_plot(name):
     plt.ylim(min(ecg_signal) - 0.2, max(ecg_signal) + 0.3)  # Y-Achse angepasst
     plt.show()
 
-
-for name in ["Elias", "Lasse", "Hauke"]:
-    create_plot(name)
+def create_plots():
+    for name in ["Elias", "Lasse", "Hauke"]:
+        create_plot(name)
 
 
 def analyse(name):
@@ -98,3 +98,29 @@ def analyse(name):
     hrv = (np.std(RR_intervals_seconds))*1000  # in ms
 
     return heart_rate_bpm, hrv, Rwave_t
+
+
+# Berechnung des geschätzten Energieverbrauchs für jede Person
+person_data = {
+    "Elias": {"age": 21, "weight": 73},
+    "Lasse": {"age": 19, "weight": 58},
+    "Hauke": {"age": 21, "weight": 77}
+}
+
+results = {}
+for name in ["Elias", "Lasse", "Hauke"]:
+    heart_rate, hrv, Rwave_t = analyse(name)
+    age = person_data[name]["age"]
+    weight = person_data[name]["weight"]
+    # Energieverbrauch in kcal/min (vereinfachte Formel)
+    #hrr = heart_rate - (208 - 0.7 * age)
+    #energy_expenditure = 0.449+0.0627*hrr+0.00743*weight+0.001*hrr*weight # in kcal/minute Model one from given paper for man and low activity
+    energy_expenditure = 4.56 - 0.0265*heart_rate -0.1506*weight + 0.00189*heart_rate*weight  # in kcal/minute Model one from given paper and low activity
+    
+    results[name] = {
+        "Heart Rate (bpm)": float(heart_rate),
+        "HRV (ms)": float(hrv),
+        "Estimated Energy Expenditure (kcal/min)": float(energy_expenditure),
+        "Estimated Energy Expenditure * duration (kcal)": float(energy_expenditure * 10)  # assuming 10 minutes of activity
+    }
+    print(results[name])

@@ -21,7 +21,7 @@ def analyze_ecg(file_path, name):
     mean_RR_interval = np.mean(RR_intervals_seconds)
     heart_rate_bpm = 60 / mean_RR_interval
     hrv = (np.std(RR_intervals_seconds))*1000 # in ms
-    
+
     print(f'\n{name}:')
     print(f'Heart Rate: {heart_rate_bpm:.2f} bpm')
     print(f'Heart Rate Variability (HRV): {hrv:.4f} milliseconds')
