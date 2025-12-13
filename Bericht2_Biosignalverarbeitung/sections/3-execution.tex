@@ -1,8 +1,20 @@
 \section{Versuchsaufbau und Durchführung}
 \subsection{Aufgabe 1: Diagramme der Komponenten}
 \subsection{Aufgabe 2: Daten im Seriellen Plotter}
+Im seriellen Plotter wurden die Rohdaten des EKG-Signals visualisiert. Dabei konnte beobachtet werden,
+dass, sobald der Laptop über ein Netzteil mit Strom versorgt wurde, starke Störungen in Form von Noise im Signal auftraten.
+Der Noise hat eine Frequenz von circa 50 Hz, weshalb davon auszugehen ist, dass es sich um Netzbrummen handelt.
+Das Netzbrummen wurde durch die Verwendung des Laptops im Akkubetrieb vermieden. Alternativ wäre eine Filterung des Signals mit Tiefpassfiltern möglich gewesen.
 \subsection{Aufgabe 3: Experiment in Ruhe}
 \subsection{Aufgabe 4: Beschreibung und Erklärung des Ruhe-EKG Codes}
+\subsubsection{Arduino Code}
+Das bereitgestellte Skript Lab2Code1 \cite{Lab2Code1.ino} wurde verwendet, um die Rohdaten des EKG-Signals zu erfassen und über die serielle Schnittstelle an den Computer zu übertragen.
+Der Code initialisiert die serielle Kommunikation mit einer Baudrate von 500000 und liest kontinuierlich die analogen Werte vom EKG-Sensor ein.
+Dieser Wert wird dann nur an die Console weitergegeben, wenn eine Zeit von 1000 Millisekunden abgelaufen ist.
+\subsubsection{Python Code}
+Der Code serialRead \cite{serialRead.ipynb} wurde ebenfalls bereitgestellt. 
+In diesem Skript kann die serielle Schnittstelle, die Baudrate und die Dauer der Aufnahme gesetzt werden.
+
 \subsection{Aufgabe 5: Fünf-Sekunden-Plot der Ruhe-EKGs}
 \subsection{Aufgabe 6: Errechnete Daten der Ruhe-EKGs}
 \subsection{Aufgabe 7: Einordnung der Daten im Kontext derer der Mitstudierenden}
