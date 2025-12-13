@@ -101,26 +101,49 @@ def analyse(name):
 
 
 # Berechnung des geschätzten Energieverbrauchs für jede Person
-person_data = {
-    "Elias": {"age": 21, "weight": 73},
-    "Lasse": {"age": 19, "weight": 58},
-    "Hauke": {"age": 21, "weight": 77}
-}
-
-results = {}
-for name in ["Elias", "Lasse", "Hauke"]:
-    heart_rate, hrv, Rwave_t = analyse(name)
-    age = person_data[name]["age"]
-    weight = person_data[name]["weight"]
-    # Energieverbrauch in kcal/min (vereinfachte Formel)
-    #hrr = heart_rate - (208 - 0.7 * age)
-    #energy_expenditure = 0.449+0.0627*hrr+0.00743*weight+0.001*hrr*weight # in kcal/minute Model one from given paper for man and low activity
-    energy_expenditure = 4.56 - 0.0265*heart_rate -0.1506*weight + 0.00189*heart_rate*weight  # in kcal/minute Model one from given paper and low activity
-    
-    results[name] = {
-        "Heart Rate (bpm)": float(heart_rate),
-        "HRV (ms)": float(hrv),
-        "Estimated Energy Expenditure (kcal/min)": float(energy_expenditure),
-        "Estimated Energy Expenditure * duration (kcal)": float(energy_expenditure * 10)  # assuming 10 minutes of activity
+def calculate_energy_expenditure():
+    person_data = {
+        "Elias": {"age": 21, "weight": 73},
+        "Lasse": {"age": 19, "weight": 58},
+        "Hauke": {"age": 21, "weight": 77}
     }
-    print(results[name])
+
+    results = {}
+    for name in ["Elias", "Lasse", "Hauke"]:
+        heart_rate, hrv, Rwave_t = analyse(name)
+        age = person_data[name]["age"]
+        weight = person_data[name]["weight"]
+        # Energieverbrauch in kcal/min (vereinfachte Formel)
+        #hrr = heart_rate - (208 - 0.7 * age)
+        #energy_expenditure = 0.449+0.0627*hrr+0.00743*weight+0.001*hrr*weight # in kcal/minute Model one from given paper for man and low activity
+        energy_expenditure = 4.56 - 0.0265*heart_rate -0.1506*weight + 0.00189*heart_rate*weight  # in kcal/minute Model one from given paper and low activity
+        
+        results[name] = {
+            "Heart Rate (bpm)": float(heart_rate),
+            "HRV (ms)": float(hrv),
+            "Estimated Energy Expenditure (kcal/min)": float(energy_expenditure),
+            "Estimated Energy Expenditure * duration (kcal)": float(energy_expenditure * 10)  # assuming 10 minutes of activity
+        }
+        print(results[name])
+
+
+def create_serial_plotter_plots():
+    fig, axes = plt.subplots(3, 1, figsize=(10, 10))  # A3: 11.7x16.5 inch
+    
+    for idx, name in enumerate(["with_charger", "without_charger", "with_charger_and_touch"]):
+        ecg_signal = data[name]["value"].to_list()
+        time = data[name].index.to_list()
+
+        axes[idx].plot(time, ecg_signal, color='#1f77b4', linewidth=1)
+        axes[idx].set_xlabel('Zeit / $ms$', fontsize=10)
+        axes[idx].set_ylabel('Amplitude / $mV$', fontsize=10)
+        #axes[idx].set_title(f'ECG Signal - {name.replace("_", " ").title()}', fontsize=12, fontweight='bold', pad=15)
+        axes[idx].grid(True, which='both', linestyle=':', linewidth=0.5)
+        #axes[idx].set_ylim(min(ecg_signal) - 0.2, max(ecg_signal) + 0.3)
+        axes[idx].tick_params(axis='both', which='major', labelsize=9)
+    
+    plt.tight_layout(pad=2.0)
+    plt.savefig('Labor_2/Daten_L2/graphs/ecg_plots_with_without_touch.png', dpi=300, bbox_inches='tight')
+    plt.show()
+
+create_serial_plotter_plots()
