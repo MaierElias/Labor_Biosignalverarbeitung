@@ -68,16 +68,18 @@ def create_plot(name):
              fontsize=14, fontweight='bold', ha='center')
 
     # Achsenbeschriftungen und Titel
-    plt.xlabel('Zeit (ms)')
-    plt.ylabel('Amplitude')
+    plt.xlabel('Zeit / $ms$')
+    plt.ylabel('Amplitude / $mV$')
     plt.grid(True, which='both', linestyle=':', linewidth=0.5)
-    plt.ylim(min(ecg_signal) - 0.2, max(ecg_signal) + 0.3)  # Y-Achse angepasst
+    #plt.ylim(min(ecg_signal) - 0.2, max(ecg_signal) + 0.3)  # Y-Achse angepasst
+    plt.savefig(f'Labor_2/Daten_L2/graphs/ecg_plot_{name}.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 def create_plots():
-    for name in ["Elias", "Lasse", "Hauke"]:
+    for name in ["Elias"]:
         create_plot(name)
 
+create_plots()
 
 def analyse(name):
     """Analysiere ECG-Daten und berechne HF und HRV"""
@@ -147,3 +149,21 @@ def create_serial_plotter_plots():
     plt.show()
 
 create_serial_plotter_plots()
+
+def plot_of_all_participants():
+    plt.figure(figsize=(12, 6))
+
+    for name in ["Elias", "Lasse", "Hauke"]:
+        ecg_signal = data[name]["value"][6000:11000].to_list()
+        time = data[name].index[6000:11000].to_list()
+
+        plt.plot(time, ecg_signal, label=name)
+
+    plt.xlabel('Zeit / $ms$')
+    plt.ylabel('Amplitude / $mV$')
+    plt.legend()
+    plt.grid(True, which='both', linestyle=':', linewidth=0.5)
+    plt.savefig('Labor_2/Daten_L2/graphs/ecg_plots_all_participants.png', dpi=300, bbox_inches='tight')
+    plt.show()
+
+plot_of_all_participants()
