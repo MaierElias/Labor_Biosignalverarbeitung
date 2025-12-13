@@ -102,6 +102,35 @@ def analyse(name):
     return heart_rate_bpm, hrv, Rwave_t
 
 
+def plot_ecg_with_rwaves(name, Rwave_t):
+    ecg_signal = data[name]["value"].to_list()
+    time = data[name].index.to_list()
+
+    # Zeitraum definieren
+    start_idx = 6000
+    end_idx = 11000
+    
+    # Daten für den gewünschten Zeitraum extrahieren
+    time_range = time[start_idx:end_idx]
+    ecg_range = ecg_signal[start_idx:end_idx]
+    
+    # R-Peaks im Zeitraum filtern
+    mask = (Rwave_t >= start_idx) & (Rwave_t < end_idx)
+    rwave_indices = Rwave_t[mask]
+    
+    plt.figure(figsize=(10, 5))
+    plt.plot(time_range, ecg_range, color='#1f77b4', linewidth=1, label='ECG Signal')
+    plt.scatter([time[i] for i in rwave_indices], [ecg_signal[i] for i in rwave_indices],
+                color='red', label='R-Peaks', zorder=5)
+    plt.xlabel('Zeit / $ms$')
+    plt.ylabel('Amplitude / $mV$')
+    plt.grid(True, which='both', linestyle=':', linewidth=0.5)
+    plt.legend(loc = 'upper right')
+    plt.savefig(f'Labor_2/Daten_L2/graphs/ecg_with_rwaves_{name}.png', dpi=300, bbox_inches='tight')
+    plt.show()
+
+plot_ecg_with_rwaves("Elias", analyse("Elias")[2])
+
 # Berechnung des geschätzten Energieverbrauchs für jede Person
 def calculate_energy_expenditure():
     person_data = {
