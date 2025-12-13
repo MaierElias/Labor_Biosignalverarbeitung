@@ -128,9 +128,9 @@ def calculate_energy_expenditure():
 
 
 def create_serial_plotter_plots():
-    fig, axes = plt.subplots(3, 1, figsize=(10, 10))  # A3: 11.7x16.5 inch
+    fig, axes = plt.subplots(2, 1, figsize=(10, 10)) # 2 Zeilen, 1 Spalte
     
-    for idx, name in enumerate(["with_charger", "without_charger", "with_charger_and_touch"]):
+    for idx, name in enumerate(["with_charger", "with_charger_and_touch"]):
         ecg_signal = data[name]["value"].to_list()
         time = data[name].index.to_list()
 
@@ -143,7 +143,7 @@ def create_serial_plotter_plots():
         axes[idx].tick_params(axis='both', which='major', labelsize=9)
     
     plt.tight_layout(pad=2.0)
-    plt.savefig('Labor_2/Daten_L2/graphs/ecg_plots_with_without_touch.png', dpi=300, bbox_inches='tight')
+    plt.savefig('Labor_2/Daten_L2/graphs/ecg_plots_with_and_without_charger.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 create_serial_plotter_plots()
