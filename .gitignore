@@ -5,6 +5,7 @@ __pycache__/
 .ruff_cache/
 .pdm-python
 .venv/
+.vscode
 
 # LaTeX
 *.aux
