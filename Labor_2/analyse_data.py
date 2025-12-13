@@ -68,16 +68,18 @@ def create_plot(name):
              fontsize=14, fontweight='bold', ha='center')
 
     # Achsenbeschriftungen und Titel
-    plt.xlabel('Zeit (ms)')
-    plt.ylabel('Amplitude')
+    plt.xlabel('Zeit / $ms$')
+    plt.ylabel('Amplitude / $mV$')
     plt.grid(True, which='both', linestyle=':', linewidth=0.5)
-    plt.ylim(min(ecg_signal) - 0.2, max(ecg_signal) + 0.3)  # Y-Achse angepasst
+    #plt.ylim(min(ecg_signal) - 0.2, max(ecg_signal) + 0.3)  # Y-Achse angepasst
+    plt.savefig(f'Labor_2/Daten_L2/graphs/ecg_plot_{name}.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 def create_plots():
-    for name in ["Elias", "Lasse", "Hauke"]:
+    for name in ["Elias"]:
         create_plot(name)
 
+create_plots()
 
 def analyse(name):
     """Analysiere ECG-Daten und berechne HF und HRV"""
@@ -99,6 +101,35 @@ def analyse(name):
 
     return heart_rate_bpm, hrv, Rwave_t
 
+
+def plot_ecg_with_rwaves(name, Rwave_t):
+    ecg_signal = data[name]["value"].to_list()
+    time = data[name].index.to_list()
+
+    # Zeitraum definieren
+    start_idx = 6000
+    end_idx = 11000
+    
+    # Daten für den gewünschten Zeitraum extrahieren
+    time_range = time[start_idx:end_idx]
+    ecg_range = ecg_signal[start_idx:end_idx]
+    
+    # R-Peaks im Zeitraum filtern
+    mask = (Rwave_t >= start_idx) & (Rwave_t < end_idx)
+    rwave_indices = Rwave_t[mask]
+    
+    plt.figure(figsize=(10, 5))
+    plt.plot(time_range, ecg_range, color='#1f77b4', linewidth=1, label='ECG Signal')
+    plt.scatter([time[i] for i in rwave_indices], [ecg_signal[i] for i in rwave_indices],
+                color='red', label='R-Peaks', zorder=5)
+    plt.xlabel('Zeit / $ms$')
+    plt.ylabel('Amplitude / $mV$')
+    plt.grid(True, which='both', linestyle=':', linewidth=0.5)
+    plt.legend(loc = 'upper right')
+    plt.savefig(f'Labor_2/Daten_L2/graphs/ecg_with_rwaves_{name}.png', dpi=300, bbox_inches='tight')
+    plt.show()
+
+plot_ecg_with_rwaves("Elias", analyse("Elias")[2])
 
 # Berechnung des geschätzten Energieverbrauchs für jede Person
 def calculate_energy_expenditure():
@@ -147,3 +178,21 @@ def create_serial_plotter_plots():
     plt.show()
 
 create_serial_plotter_plots()
+
+def plot_of_all_participants():
+    plt.figure(figsize=(12, 6))
+
+    for name in ["Elias", "Lasse", "Hauke"]:
+        ecg_signal = data[name]["value"][6000:11000].to_list()
+        time = data[name].index[6000:11000].to_list()
+
+        plt.plot(time, ecg_signal, label=name)
+
+    plt.xlabel('Zeit / $ms$')
+    plt.ylabel('Amplitude / $mV$')
+    plt.legend()
+    plt.grid(True, which='both', linestyle=':', linewidth=0.5)
+    plt.savefig('Labor_2/Daten_L2/graphs/ecg_plots_all_participants.png', dpi=300, bbox_inches='tight')
+    plt.show()
+
+plot_of_all_participants()
