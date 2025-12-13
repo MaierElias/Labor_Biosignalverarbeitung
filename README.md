@@ -16,3 +16,6 @@ Im Unterordner `Labor_1` befindet sich der Code für das erste Laborprojekt und
 im Unterordner `Labor_2` der Code für das zweite Laborprojekt.
 
 Im Unterordner `Bericht_Biosignalverarbeitung` befindet sich der Bericht zum Laborprojekt 1 und im Unterordner `Bericht2_Biosignalverarbeitung` der Bericht zum Laborprojekt 2.
+
+# Bilder zu HR und HFV Kurs
+Die Bilder werden in den Ordner graphs gespeichert, die Versionen, die im Report verwendet werden, finden sich im Ordner figures. 
