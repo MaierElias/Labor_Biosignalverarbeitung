@@ -68,7 +68,7 @@ def analyze_ecg_and_plot(file_path, window_size=10):
     # Versuche Peak-Detection mit verschiedenen Parametern
     try:
         # Erste Versuche mit moderaten Werten
-        Rwave_peaks_d_ecg, threshold = ekg.d_ecg_peaks(d_ECG, peaks_d_ecg, time, 0.5, 0.2)
+        Rwave_peaks_d_ecg, threshold = ekg.d_ecg_peaks(d_ECG, peaks_d_ecg, time, 0.01, 0.1)
         print(f"Versuch 1 erfolgreich: {len(Rwave_peaks_d_ecg)} R-Wave Peaks gefunden")
     except Exception as e:
         print(f"Versuch 1 fehlgeschlagen: {e}")
@@ -157,9 +157,10 @@ def analyze_ecg_and_plot(file_path, window_size=10):
                  linewidth=2, markersize=4, color='#1f77b4')
         plt.xlabel('Zeit / $ms$', fontsize=12)
         plt.ylabel('Herzfrequenz / $bpm$', fontsize=12)
-        plt.title(f'Herzfrequenz während Belastung (Fenster={window_size} Schläge)', 
-                  fontsize=14, fontweight='bold')
+        #plt.title(f'Herzfrequenz während Belastung (Fenster={window_size} Schläge)', 
+        #          fontsize=14, fontweight='bold')
         plt.grid(True, which='both', linestyle=':', linewidth=0.5)
+        plt.legend()
         plt.tight_layout()
         plt.savefig('Bericht2_Biosignalverarbeitung/figures/windowed_hr.png', dpi=300, bbox_inches='tight')
         plt.show()
@@ -169,4 +170,4 @@ def analyze_ecg_and_plot(file_path, window_size=10):
     return heart_rate_bpm, hrv
 
 # Verwendung:
-analyze_ecg_and_plot('Labor_2/Daten_L2/arduino_log_belastung.csv', window_size=1)
+analyze_ecg_and_plot('Labor_2/Daten_L2/arduino_log_belastung.csv', window_size=7)

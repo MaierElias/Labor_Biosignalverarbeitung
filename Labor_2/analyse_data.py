@@ -69,7 +69,7 @@ def create_plot(name):
 
     # Achsenbeschriftungen und Titel
     plt.xlabel('Zeit / $ms$')
-    plt.ylabel('Amplitude / $mV$')
+    plt.ylabel('Amplitude')
     plt.grid(True, which='both', linestyle=':', linewidth=0.5)
     #plt.ylim(min(ecg_signal) - 0.2, max(ecg_signal) + 0.3)  # Y-Achse angepasst
     plt.savefig(f'Bericht2_Biosignalverarbeitung/figures/ecg_plot_{name}.png', dpi=300, bbox_inches='tight')
@@ -123,7 +123,7 @@ def plot_ecg_with_rwaves(name, Rwave_t):
     plt.scatter([time[i] for i in rwave_indices], [ecg_signal[i] for i in rwave_indices],
                 color='red', label='R-Peaks', zorder=5)
     plt.xlabel('Zeit / $ms$')
-    plt.ylabel('Amplitude / $mV$')
+    plt.ylabel('Amplitude')
     plt.grid(True, which='both', linestyle=':', linewidth=0.5)
     plt.legend(loc = 'upper right')
     plt.savefig(f'Bericht2_Biosignalverarbeitung/figures/ecg_with_rwaves_{name}.png', dpi=300, bbox_inches='tight')
@@ -157,6 +157,7 @@ def calculate_energy_expenditure():
         }
         print(results[name])
 
+calculate_energy_expenditure()
 
 def create_serial_plotter_plots():
     fig, axes = plt.subplots(2, 1, figsize=(10, 10)) # 2 Zeilen, 1 Spalte
@@ -167,7 +168,7 @@ def create_serial_plotter_plots():
 
         axes[idx].plot(time, ecg_signal, color='#1f77b4', linewidth=1)
         axes[idx].set_xlabel('Zeit / $ms$', fontsize=10)
-        axes[idx].set_ylabel('Amplitude / $mV$', fontsize=10)
+        axes[idx].set_ylabel('Amplitude', fontsize=10)
         #axes[idx].set_title(f'ECG Signal - {name.replace("_", " ").title()}', fontsize=12, fontweight='bold', pad=15)
         axes[idx].grid(True, which='both', linestyle=':', linewidth=0.5)
         #axes[idx].set_ylim(min(ecg_signal) - 0.2, max(ecg_signal) + 0.3)
@@ -189,7 +190,7 @@ def plot_of_all_participants():
         plt.plot(time, ecg_signal, label=name)
 
     plt.xlabel('Zeit / $ms$')
-    plt.ylabel('Amplitude / $mV$')
+    plt.ylabel('Amplitude')
     plt.legend()
     plt.grid(True, which='both', linestyle=':', linewidth=0.5)
     plt.savefig('Bericht2_Biosignalverarbeitung/figures/ecg_plots_all_participants.png', dpi=300, bbox_inches='tight')
