@@ -230,7 +230,7 @@ def analyze_ecg_and_plot(file_path, window_size=10):
         plt.grid(True, which='both', linestyle=':', linewidth=0.5)
         plt.legend()
         plt.tight_layout()
-        plt.savefig('Bericht2_Biosignalverarbeitung/figures/windowed_hr.png',
+        plt.savefig('Bericht2_Biosignalverarbeitung/figures/windowed_hr_with_averages.png',
                     dpi=300, bbox_inches='tight')
         plt.show()
     else:
