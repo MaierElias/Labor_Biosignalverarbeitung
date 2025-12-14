@@ -28,6 +28,7 @@ def analyze_ecg(file_path, name = "Default_name"):
     
     return heart_rate_bpm, hrv
 
+
 # files = {
 #     'Hauke': 'Labor_2/Daten_L2/arduino_log_Hauke.csv',
 #     'Elias': 'Labor_2/Daten_L2/arduino_log_Elias.csv',
