@@ -6,7 +6,7 @@
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/ecg_plots_with_and_without_charger.png}
-    \caption{Serieller Plotter mit und ohne Netzanschluss}
+    \caption{Serieller Plotter mit (oben) und ohne (unten) Netzanschluss}
     \label{fig:serial_plotter_noise_and_normal}
 \end{figure}
 
@@ -32,8 +32,17 @@ In Abbildung \ref{fig:ecg_plot_all_participants} sind die Rohdaten der Ruhe-EKGs
     \label{fig:ecg_with_marked_waves_elias}
 \end{figure}
 
-In Abbildung \ref{fig:ecg_with_marked_waves_elias} ist das EKG-Signal von Elias mit den markierten P-, QRS- und T-Wellen dargestellt.
-- Hier muss noch genau auf die Fragestellung eingegangen werden -
+In Abbildung \ref{fig:ecg_with_marked_waves_elias} ist das EKG-Signal von Elias mit den markierten P-(rot), QRS-(grün) und T-Wellen(gelb) dargestellt.
+Die P-Welle repräsentiert die Depolarisation der Vorhöfe. Sie entsteht, wenn der elektrische Impuls vom Sinusknoten ausgeht und
+sich über beide Vorhöfe ausbreitet. Dies führt zur Kontraktion der Vorhöfe und zum Bluttransport in die Herzkammern. Die P-Welle
+ist normalerweise klein und positiv.
+Der QRS-Komplex zeigt die Depolarisation der Herzkammern. Dieser scharfe, große Ausschlag entsteht, wenn sich der elektrische
+Impuls vom AV-Knoten über das His-Bündel und die Purkinje-Fasern schnell durch die Ventrikel ausbreitet. Die resultierende Kontraktion der
+Ventrikel pumpt das Blut in den Lungen- und Körperkreislauf. Der QRS-Komplex überlagert gleichzeitig die Repolarisation der Vorhöfe, die
+dadurch im EKG nicht sichtbar ist.
+Die T-Welle repräsentiert die Repolarisation der Ventrikel. Nach der Kontraktion kehren die Herzkammerzellen in ihren Ruhezustand zurück.
+Dies bereitet das Herz auf den nächsten Zyklus vor. Die T-Welle ist
+normalerweise positiv und breiter als der QRS-Komplex, da die Repolarisation langsamer abläuft als die Depolarisation.
 
 
 \subsection{Aufgabe 4: Beschreibung und Erklärung des Ruhe-EKG Codes}
@@ -49,7 +58,7 @@ In diesem Skript können die serielle Schnittstelle, die Baudrate und die Dauer 
 Die Funktion sampling() öffnet die serielle Schnittstelle und das Outputdkoument und liest dann die Daten für die angegebene Dauer ein.
 Die eingelesenen Daten werden in eine Liste gespeichert und anschließend in das Outputdokument geschrieben.
 Danach werden Informationen zur gemittelten Samplingrate über die gesamte Aufnahmezeit, totale Anzahl an Samples und vergangener Zeit sowie der Speicherbestätigung ausgegeben.
-Die Funktion returned den Wert der errechneten Sampling Rate.
+Die Funktion gibt den Wert der errechneten Sampling Rate zurück.
 Im zweiten Teil des Codes werden die Daten aus dem Outputdokument eingelesen und in einem Plot visualisiert, um direkt die Qualität der Aufnahme beurteilen zu können.
 
 \subsection{Aufgabe 5: Fünf-Sekunden-Plot der Ruhe-EKGs}
@@ -59,22 +68,16 @@ Im zweiten Teil des Codes werden die Daten aus dem Outputdokument eingelesen und
     \includegraphics[width=0.7\textwidth]{figures/ecg_with_rwaves_Elias.png}
     \caption{EKG-Signal mit markierten R-Zacken für Elias}
     \label{fig:ecg_with_rwaves_elias}
-\end{figure}
+\end{figure}    
 
 Abbildung \ref{fig:ecg_with_rwaves_elias} zeigt das EKG-Signal von Elias mit den markierten R-Zacken in einem ausgesuchten Bereich mit ca. 5 Sekunden Länge.
-Die Positionen der R-Zacken wurden mit den in \cite{Lab2Code1.ino} bereitgestellten Algorithmen bestimmt.
-- Hier muss noch genau auf die Fragestellung eingegangen werden -
+Die Positionen der R-Zacken wurden durch die Funktion \texttt{find\_peaks()} aus dem Modul \texttt{scipy.signal} ermittelt.
 
 \subsection{Aufgabe 6: Errechnete Daten der Ruhe-EKGs}
 
 \subsection{Aufgabe 7: Einordnung der Daten im Kontext derer der Mitstudierenden}
-In den Histogrammen zeigt sich, dass die mittlere Herzfrequenz bei Frauen und Männern ähnlich verteilt ist,
-wobei beide Geschlechter einen Mittelwert um 63-65 bpm aufweisen. Bei der Herzfrequenzvariabilität ist eine größere Streuung erkennbar,
-wobei beide Geschlechter eine breite Verteilung zeigen. Die großen Überlappungen zwischen den Geschlechtern deuten darauf hin,
-dass die interindividuelle Variabilität größer ist als geschlechtsspezifische Unterschiede. Mögliche Ursachen für fehlende 
-Geschlechtsunterschiede könnten die relativ kleine Stichprobengröße, ähnliche Fitnesslevel der Teilnehmenden oder unterschiedliche 
-Messbedingungen sein.
-
+Im Histogramm zur Verteilung der Herzfrequenzen \ref{fig:histogram_herzfrequenz} zeigt sich, dass die mittlere Herzfrequenz bei Frauen und Männern ähnlich verteilt ist,
+wobei beide Geschlechter einen Mittelwert um 63-65 bpm aufweisen.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/Histogramm_Herzfrequenz.png}
@@ -82,14 +85,23 @@ Messbedingungen sein.
     \label{fig:histogram_herzfrequenz}
 \end{figure}
 
-Hier kommt dein Text zwischen den beiden Abbildungen...
-
+Im Histogramm zur Herzfrequenzvariabilität \ref{fig:histogram_hfv} ist eine größere Streuung erkennbar,
+wobei beide Geschlechter eine breite Verteilung zeigen.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/Histogramm_HFV.png}
     \caption{Histogramm der Herzfrequenzvariabilität nach Geschlecht}
     \label{fig:histogram_hfv}
 \end{figure}
+
+Für beide Histogramm lässt sich sagen, dass die großen Überlappungen zwischen den Geschlechtern darauf hindeuten,
+dass die interindividuelle Variabilität größer ist als geschlechtsspezifische Unterschiede sind. Mögliche Ursachen für nicht erkennbare 
+Geschlechtsunterschiede könnten die relativ kleine Stichprobengröße, ähnliche Fitnesslevel der Teilnehmenden oder unterschiedliche
+Messbedingungen sein.
+\newline
+Unsere Werte für die Herzfrequenz und die Herzfrequenzvariabilität liegen im erwarteten Bereich für gesunde Erwachsene in Ruhe.
+Auch im direkten Vergleich mit den Werten der Mitstudierenden zeigen sich keine Auffälligkeiten, außer der Tatsache, dass die Variabilität
+der Herzfrequenzen bei einigen Anderen als auch bei Hauke höher ist als die, die normalerweise erwartet werden können. Das 
 
 \subsection{Aufgabe 8: Plot der Herzfrequenz während des Belastungs-EKGs}
 
