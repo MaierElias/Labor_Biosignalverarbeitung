@@ -32,13 +32,30 @@ def create_plot(name):
     plt.figure(figsize=(10, 5))
 
     # Basislinie und Segmente (wie im vorherigen Beispiel)
-    P_start, P_end = 0, 235
-    p_pos_index = int((P_start+P_end)/2)
-    QRS_start, QRS_end = 235, 350
-    qrs_r_pos_index = int((QRS_start+QRS_end)/2)
-    T_start, T_end = 350, 660
-    t_pos_index = int((T_start+T_end)/2)
+    QRS_starts = [230]
+    QRS_ends = [350]
+    T_starts = [350]
+    T_ends = [660]
+    P_start = [0]
+    P_end = [235]
+
+    for i in range(len(QRS_starts)):
+        color_graph(time, ecg_signal, QRS_starts[i], QRS_ends[i],
+                    T_starts[i], T_ends[i], P_start, P_end)
+
+    # Achsenbeschriftungen und Titel
+    plt.xlabel('Zeit (ms)')
+    plt.ylabel('Amplitude')
+    plt.grid(True, which='both', linestyle=':', linewidth=0.5)
+    plt.ylim(min(ecg_signal) - 0.2, max(ecg_signal) + 0.3)  # Y-Achse angepasst
+    plt.show()
+
+
+def color_graph(time, ecg_signal, QRS_start, QRS_end, T_start, T_end, P_start, P_end):
     Baseline_color = '#CCCCCC'
+    p_pos_index = int((P_start+P_end)/2)
+    qrs_r_pos_index = int((QRS_start+QRS_end)/2)
+    t_pos_index = int((T_start+T_end)/2)
 
     plt.plot(time, ecg_signal, color=Baseline_color, linewidth=2)
     plt.plot(time[P_start:P_end], ecg_signal[P_start:P_end],
@@ -68,16 +85,15 @@ def create_plot(name):
              fontsize=14, fontweight='bold', ha='center')
 
     # Achsenbeschriftungen und Titel
-    plt.xlabel('Zeit / $ms$')
+    plt.xlabel('Zeit (ms)')
     plt.ylabel('Amplitude')
     plt.grid(True, which='both', linestyle=':', linewidth=0.5)
-    #plt.ylim(min(ecg_signal) - 0.2, max(ecg_signal) + 0.3)  # Y-Achse angepasst
-    plt.savefig(f'Bericht2_Biosignalverarbeitung/figures/ecg_plot_{name}.png', dpi=300, bbox_inches='tight')
+    plt.ylim(min(ecg_signal) - 0.2, max(ecg_signal) + 0.3)  # Y-Achse angepasst
     plt.show()
 
-def create_plots():
-    for name in ["Elias"]:
-        create_plot(name)
+
+for name in ["Elias", "Lasse", "Hauke"]:
+    create_plot(name)
 
 create_plots()
 
