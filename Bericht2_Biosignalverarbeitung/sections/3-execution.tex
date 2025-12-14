@@ -2,12 +2,39 @@
 \subsection{Aufgabe 1: Diagramme der Komponenten}
 
 \subsection{Aufgabe 2: Daten im Seriellen Plotter}
-Im seriellen Plotter wurden die Rohdaten des EKG-Signals visualisiert. Dabei konnte beobachtet werden,
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ecg_plots_with_and_without_charger.png}
+    \caption{Serieller Plotter mit und ohne Netzanschluss}
+    \label{fig:serial_plotter_noise_and_normal}
+\end{figure}
+
+Im seriellen Plotter wurden die Rohdaten des EKG-Signals visualisiert. Wie in Abbildung \ref{fig:serial_plotter_noise_and_normal} abgebildet konnte beobachtet werden,
 dass, sobald der Laptop über ein Netzteil mit Strom versorgt wurde, starke Störungen in Form von Noise im Signal auftraten.
-Der Noise hat eine Frequenz von circa 50 Hz, weshalb davon auszugehen ist, dass es sich um Netzbrummen handelt.
-Das Netzbrummen wurde durch die Verwendung des Laptops im Akkubetrieb vermieden. Alternativ wäre eine Filterung des Signals mit Tiefpassfiltern möglich gewesen.
+Diese Störung hat eine Frequenz von circa 50 Hz, weshalb davon auszugehen ist, dass es sich um Netzbrummen handelt.
+Dies wurde durch die Verwendung des Laptops im Akkubetrieb vermieden. Alternativ wäre eine Filterung des Signals mit Tiefpassfiltern möglich gewesen.
 
 \subsection{Aufgabe 3: Experiment in Ruhe}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ecg_plots_all_participants.png}
+    \caption{Rohdaten der Ruhe-EKGs für alle Teilnehmenden}
+    \label{fig:ecg_plot_all_participants}
+\end{figure}
+In Abbildung \ref{fig:ecg_plot_all_participants} sind die Rohdaten der Ruhe-EKGs für alle Teilnehmenden für den Zeitraum von ca. 5 Sekunden (5000 ms) dargestellt.
+- hier muss noch genau auf die Fragestellung eingegangen werden -
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ecg_plot_Elias.png}
+    \caption{EKG-Signal mit markierten P-, QRS- und T-Wellen für Elias}
+    \label{fig:ecg_with_marked_waves_elias}
+\end{figure}
+
+In Abbildung \ref{fig:ecg_with_marked_waves_elias} ist das EKG-Signal von Elias mit den markierten P-, QRS- und T-Wellen dargestellt.
+- Hier muss noch genau auf die Fragestellung eingegangen werden -
+
 
 \subsection{Aufgabe 4: Beschreibung und Erklärung des Ruhe-EKG Codes}
 \subsubsection{Arduino Code}
@@ -26,6 +53,17 @@ Die Funktion returned den Wert der errechneten Sampling Rate.
 Im zweiten Teil des Codes werden die Daten aus dem Outputdokument eingelesen und in einem Plot visualisiert, um direkt die Qualität der Aufnahme beurteilen zu können.
 
 \subsection{Aufgabe 5: Fünf-Sekunden-Plot der Ruhe-EKGs}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ecg_with_rwaves_Elias.png}
+    \caption{EKG-Signal mit markierten R-Zacken für Elias}
+    \label{fig:ecg_with_rwaves_elias}
+\end{figure}
+
+Abbildung \ref{fig:ecg_with_rwaves_elias} zeigt das EKG-Signal von Elias mit den markierten R-Zacken in einem ausgesuchten Bereich mit ca. 5 Sekunden Länge.
+Die Positionen der R-Zacken wurden mit den in \cite{Lab2Code1.ino} bereitgestellten Algorithmen bestimmt.
+- Hier muss noch genau auf die Fragestellung eingegangen werden -
 
 \subsection{Aufgabe 6: Errechnete Daten der Ruhe-EKGs}
 
@@ -53,7 +91,7 @@ Hier kommt dein Text zwischen den beiden Abbildungen...
     \label{fig:histogram_hfv}
 \end{figure}
 
-\subsection{Aufgabe 8: Plott der Herzfrequenz während des Belastungs-EKGs}
+\subsection{Aufgabe 8: Plot der Herzfrequenz während des Belastungs-EKGs}
 
 \subsection{Aufgabe 9: Ruhephase vor Belastungs-EKG}
 

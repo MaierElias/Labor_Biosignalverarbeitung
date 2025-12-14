@@ -72,7 +72,7 @@ def create_plot(name):
     plt.ylabel('Amplitude / $mV$')
     plt.grid(True, which='both', linestyle=':', linewidth=0.5)
     #plt.ylim(min(ecg_signal) - 0.2, max(ecg_signal) + 0.3)  # Y-Achse angepasst
-    plt.savefig(f'Labor_2/Daten_L2/graphs/ecg_plot_{name}.png', dpi=300, bbox_inches='tight')
+    plt.savefig(f'Bericht2_Biosignalverarbeitung/figures/ecg_plot_{name}.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 def create_plots():
@@ -126,7 +126,7 @@ def plot_ecg_with_rwaves(name, Rwave_t):
     plt.ylabel('Amplitude / $mV$')
     plt.grid(True, which='both', linestyle=':', linewidth=0.5)
     plt.legend(loc = 'upper right')
-    plt.savefig(f'Labor_2/Daten_L2/graphs/ecg_with_rwaves_{name}.png', dpi=300, bbox_inches='tight')
+    plt.savefig(f'Bericht2_Biosignalverarbeitung/figures/ecg_with_rwaves_{name}.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 plot_ecg_with_rwaves("Elias", analyse("Elias")[2])
@@ -192,7 +192,7 @@ def plot_of_all_participants():
     plt.ylabel('Amplitude / $mV$')
     plt.legend()
     plt.grid(True, which='both', linestyle=':', linewidth=0.5)
-    plt.savefig('Labor_2/Daten_L2/graphs/ecg_plots_all_participants.png', dpi=300, bbox_inches='tight')
+    plt.savefig('Bericht2_Biosignalverarbeitung/figures/ecg_plots_all_participants.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 plot_of_all_participants()
