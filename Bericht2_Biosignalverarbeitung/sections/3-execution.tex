@@ -212,6 +212,8 @@ Belastung und Erholung sind klar erkennbar und zeigen die erwarteten Veränderun
 In den folgende Abschnitten werden die einzelnen Phasen genauer analysiert.
 
 \subsection{Aufgabe 9: Ruhephase vor Belastungs-EKG}
+Die Belastungsphase ist in Abbildung \ref{fig:hrwithaverages1} durch den mittleren Abschnitt des Plots gekennzeichnet.
+Der Start der Belastungsphase ist durch den linken vertikalen Strich markiert.
 Die Herzfrequenz steigt bei körperlicher Belastung nicht sofort an, sondern folgt einer charakteristischen Dynamik. Unmittelbar zu Beginn 
 der Übung zeigt sich eine kurze Verzögerungsphase von etwa 5 bis 10 Sekunden, in der die Herzfrequenz noch nahezu auf Ruheniveau verbleibt. 
 Anschließend folgt eine schnelle Anstiegsphase, in der die Herzfrequenz rasch zunimmt. Bei konstanter Belastung erreicht die Herzfrequenz 
@@ -222,17 +224,20 @@ erhöhte Aktivität registrieren und Signale an das Herz-Kreislauf-Zentrum sende
 Unter Cardiac Output, auch Herzzeitvolumen genannt, versteht man das Blutvolumen, das vom Herzen pro Minute in den Kreislauf gepumpt wird. 
 Er berechnet sich aus dem Produkt von Herzfrequenz und Schlagvolumen und beträgt beim gesunden Erwachsenen in Ruhe etwa 5 Liter pro Minute. 
 Eine plötzliche Aktivierung der Muskulatur bewirkt keine direkte Änderung des Cardiac Outputs, weil beide Komponenten, aus denen er sich 
-zusammensetzt, nicht instantan reagieren können. Somit steigt der Cardiac Output erst verzögert an, sobald sowohl die Herzfrequenz als auch das 
+zusammensetzt, nicht instantan reagieren können. Somit steigt der Cardiac Output erst verzögert an, sobald
+Die Belastungsphase ist in Abbildung \ref{fig:hr_with_averages1} durch den mittleren Abschnitt des Plots gekennzeichnet.
+Der Start der Belastungsphase ist durch den linken vertikalen Strich markiert. sowohl die Herzfrequenz als auch das 
 Schlagvolumen auf die erhöhten metabolischen Anforderungen reagiert haben.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/windowed_hr_with_averages.png}
     \caption{Herzfrequenz mit markierten Phasen (Ruhe, Belastung, Erholung) und Durchschnittswerten.}
-    \label{fig:hr_with_averages1}
+    \label{fig:hrwithaverages1}
 \end{figure}
 
 \subsection{Aufgabe 10: Erholungsphase nach Belastungs-EKG}
-Ja, die Herzfrequenz kehrt nach Ende der Belastung zum ursprünglichen Ruhepuls zurück. 
+Der Start der Erholungsphase ist in Abbildung \ref{fig:hrwith_averages1} durch den rechten vertikalen Strich gekennzeichnet.
+Die Herzfrequenz kehrt nach Ende der Belastung beinahe zum ursprünglichen Ruhepuls zurück. 
 Dieser Prozess dauert in der Regel zwischen 3 und 10 Minuten, abhängig von der Belastungsintensität, der Belastungsdauer und dem 
 individuellen Trainingszustand.
 Dieser Prozess dauert relativ lange, weil mehrere physiologische Mechanismen ablaufen müssen. Das sympathische Nervensystem, 
@@ -246,23 +251,18 @@ schnellere Erholung der Herzfrequenz, da ihr Herz-Kreislauf-System effizienter a
 schneller auf Ruhebedingungen umschalten kann.
 
 \subsection{Aufgabe 11: Berechnen des metabolischen Energieverbrauchs}
+In der Funktion \texttt{analyze\_ecg\_and\_plot()} aus der Datei \cite{analyzeHearthdata} wurde die Formel zur Berechnung des Energieverbrauchs 
+aus Model 1 für Männer aus dem Paper \cite{Hiilloskorpi2003HeartRateEnergyExpenditure} implementiert. Die Berechnung des Energieverbrauchs 
+fehlt, weshalb nur der zugehörige Text geschrieben wurde.
+\newline
+Darin ist wie erwartet zu erkennen, dass der Energieverbrauch während der Belastungsphase deutlich ansteigt und in in der Erholungsphase 
+wieder abfällt, allerdings nicht sofort auf das Ruhe-Niveau. Der Energieverbauch ist direkt an die Herzfrequenz gekoppelt, weshalb die 
+Annäherung des Models an die erwarteten Werte recht gut ist, da intuitiv mit steigender Belastung auch der Energieverbrauch steigt. Dieser 
+Trend ist in der Abbildung klar erkennbar.
 
-%In der Funktion \texttt{analyze_ecg_and_plot()} aus der Datei \ref{analyzeHearthdata} wurde die Formel zur Berechnung des Energieverbrauchs 
-%aus Model 1 für Männer aus dem Paper \cite{Hiilloskorpi2003HeartRateEnergyExpenditure} implementiert.
-%\newline
-%In Abbildung \ref{fig:energy_expenditure_belastung.png} ist der berechnete Energieverbrauch während des Belastungs-EKGs dargestellt.
-%Darin ist wie erwartet zu erkennen, dass der Energieverbrauch während der Belastungsphase deutlich ansteigt und in in der Erholungsphase 
-%wieder abfällt, allerdings nicht sofort auf das Ruhe-Niveau. Der Energieverbauch ist direkt an die Herzfrequenz gekoppelt, weshalb die 
-%Annäherung des Models an die erwarteten Werte recht gut ist, da intuitiv mit steigender Belastung auch der Energieverbrauch steigt. Dieser 
-%Trend ist in der Abbildung \ref{fig:energy_expenditure_belastung.png} klar erkennbar.
-%\begin{figure}[h]
-%    \centering
-%    \includegraphics[width=0.7\textwidth]{figures/Energieverbrauch_Belastung.png}
-%    \caption{Berechneter Energieverbrauch während des Belastungs-EKGs}
-%    \label{fig:energy_expenditure_belastung.png}
-%\end{figure}
 
 \subsection{Aufgabe 12: Einordnung des Energieverbrauchs und entsprechender Code}
+Für die Aufgabe 12 gilt das selbe wie für Aufgabe 11, es fehlen die Werte, die Funktion zur Berechnung ist allerdings fertig.
 Der gesamte Energieverbrauch über das Belasungs-EKG beträgt circa \newline
 -> HIER WERT EINFÜGEN <- \newline
 \begin{table}[ht]
@@ -283,4 +283,3 @@ Der gesamte Energieverbrauch über das Belasungs-EKG beträgt circa \newline
 \end{table}
 Das entspricht ungefähr den in Tabelle \ref{tab:umgerechneterEnergieverbrauch} umgerechneten Einheiten.
 Die Werte wurden mit der Funktion \texttt{calculateenergy()} aus der Datei \cite{calculateEnergy} berechnet.
-
