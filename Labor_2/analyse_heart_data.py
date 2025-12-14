@@ -166,14 +166,64 @@ def analyze_ecg_and_plot(file_path, window_size=10):
         # Plot erstellen
 
         plt.figure(figsize=(12, 6))
-        [120, 120+180, 120+180+300]
 
         plt.plot(windowed_times, windowed_hr, marker='o', linestyle='-',
                  linewidth=2, markersize=4, color='#1f77b4')
 
-        plt.axvline(120*1000)
-        plt.axvline((120+180)*1000)
-        plt.axvline((120+180+300)*1000)
+        # --- Zeitgrenzen definieren (in ms) ---
+        t_rest_end = 120 * 1000        # 120 Sekunden
+        t_test_end = (120 + 180) * 1000   # 300 Sekunden
+
+        # Indizes im Zeit-Array finden
+        idx_rest = np.searchsorted(windowed_times, t_rest_end)
+        idx_test = np.searchsorted(windowed_times, t_test_end)
+
+        # --- Mittelwerte berechnen ---
+        # Ruhephase (Start bis 120s)
+        if idx_rest > 0:
+            mean_resting = np.mean(windowed_hr[:idx_rest])
+        else:
+            mean_resting = np.nan
+
+        # Belastungsphase (120s bis 300s)
+        if idx_test > idx_rest:
+            mean_test = np.mean(windowed_hr[idx_rest:idx_test])
+        else:
+            mean_test = np.nan
+
+        # Erholungsphase (300s bis Ende)
+        if len(windowed_hr) > idx_test:
+            mean_end = np.mean(windowed_hr[idx_test:])
+        else:
+            mean_end = np.nan
+
+        print(
+            f"Mittelwerte -> Ruhe: {mean_resting:.1f}, Belastung: {mean_test:.1f}, Erholung: {mean_end:.1f}")
+
+        # --- Vertikale Trennlinien ---
+        plt.axvline(t_rest_end, color='gray', linestyle='--', alpha=0.8)
+        plt.axvline(t_test_end, color='gray', linestyle='--', alpha=0.8)
+
+        # --- Horizontale Durchschnittslinien (mit hlines für exakte Länge) ---
+        t_start = windowed_times[0]
+        t_end_meas = windowed_times[-1]
+
+        # 1. Ruhephase
+        if not np.isnan(mean_resting):
+            plt.hlines(y=mean_resting, xmin=t_start, xmax=t_rest_end,
+                       colors='orange', linewidth=2.5, label=f'Ruhe Ø {mean_resting:.1f}')
+
+        # 2. Belastung
+        if not np.isnan(mean_test):
+            # xmax ist entweder 300s oder das Ende der Messung, falls früher
+            xmax_test = min(t_test_end, t_end_meas)
+            plt.hlines(y=mean_test, xmin=t_rest_end, xmax=xmax_test,
+                       colors='red', linewidth=2.5, label=f'Belastung Ø {mean_test:.1f}')
+
+        # 3. Erholung
+        if not np.isnan(mean_end) and t_end_meas > t_test_end:
+            plt.hlines(y=mean_end, xmin=t_test_end, xmax=t_end_meas,
+                       colors='green', linewidth=2.5, label=f'Erholung Ø {mean_end:.1f}')
 
         plt.xlabel('Zeit / $ms$', fontsize=12)
         plt.ylabel('Herzfrequenz / $bpm$', fontsize=12)
