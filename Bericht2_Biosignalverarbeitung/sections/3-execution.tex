@@ -10,7 +10,7 @@
     \label{fig:serial_plotter_noise_and_normal}
 \end{figure}
 
-Im seriellen Plotter wurden die Rohdaten des EKG-Signals visualisiert. Wie in Abbildung \ref{fig:serial_plotter_noise_and_normal} abgebildet konnte beobachtet werden,
+Im seriellen Plotter wurden die Rohdaten des EKG-Signals visualisiert. Wie in Abbildung \ref{fig:serial_plotter_noise_and_normal} zu beobachten ist, zeigte sich
 dass, sobald der Laptop über ein Netzteil mit Strom versorgt wurde, starke Störungen in Form von Noise im Signal auftraten.
 Diese Störung hat eine Frequenz von circa 50 Hz, weshalb davon auszugehen ist, dass es sich um Netzbrummen handelt.
 Dies wurde durch die Verwendung des Laptops im Akkubetrieb vermieden. Alternativ wäre eine Filterung des Signals mit Tiefpassfiltern möglich gewesen.
@@ -31,7 +31,7 @@ In Abbildung \ref{fig:ecg_plot_all_participants} sind die Rohdaten der Ruhe-EKGs
     \label{fig:ecg_with_marked_waves_elias}
 \end{figure}
 
-In Abbildung \ref{fig:ecg_with_marked_waves_elias} ist das EKG-Signal von Elias mit den markierten P-(rot), QRS-(grün) und T-Wellen(gelb) dargestellt.
+In Abbildung \ref{fig:ecg_with_marked_waves_elias} ist das EKG-Signal von Elias mit den markierten P- (rot), QRS- (grün) und T-Wellen (gelb) dargestellt.
 Die P-Welle repräsentiert die Depolarisation der Vorhöfe. Sie entsteht, wenn der elektrische Impuls vom Sinusknoten ausgeht und
 sich über beide Vorhöfe ausbreitet. Dies führt zur Kontraktion der Vorhöfe und zum Bluttransport in die Herzkammern. Die P-Welle
 ist normalerweise klein und positiv.
@@ -60,7 +60,7 @@ Danach werden Informationen zur gemittelten Samplingrate über die gesamte Aufna
 Die Funktion gibt den Wert der errechneten Sampling Rate zurück.
 Im zweiten Teil des Codes werden die Daten aus dem Outputdokument eingelesen und in einem Plot visualisiert, um direkt die Qualität der Aufnahme beurteilen zu können.
 
-\subsection{Aufgabe 5: Fünf-Sekunden-Plot der Ruhe-EKGs}
+\subsection{Aufgabe 5: Fünf-Sekunden-Plot des Ruhe-EKG}
 
 \begin{figure}[h]
     \centering
@@ -70,30 +70,52 @@ Im zweiten Teil des Codes werden die Daten aus dem Outputdokument eingelesen und
 \end{figure}    
 
 Abbildung \ref{fig:ecg_with_rwaves_elias} zeigt das EKG-Signal von Elias mit den markierten R-Zacken in einem ausgesuchten Bereich mit ca. 5 Sekunden Länge.
-Die Positionen der R-Zacken wurden durch die Funktion \texttt{find\_peaks()} aus dem Modul \texttt{scipy.signal} ermittelt.
+Die Positionen der R-Zacken wurden durch die bereitgestellten Funktionen in Lab2Functions \cite{Lab2Functions.py} ermittelt.
 
 \subsection{Aufgabe 6: Errechnete Daten der Ruhe-EKGs}
 
-\subsection{Aufgabe 7: Einordnung der Daten im Kontext derer der Mitstudierenden}
-Im Histogramm zur Verteilung der Herzfrequenzen \ref{fig:histogram_herzfrequenz} zeigt sich, dass die mittlere Herzfrequenz bei Frauen und Männern ähnlich verteilt ist,
-wobei beide Geschlechter einen Mittelwert um 63-65 bpm aufweisen.
-\begin{figure}[htbp]
+\begin{table}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/Histogramm_Herzfrequenz.png}
+    \begin{tabularx}{\textwidth}{l l X}
+        \hline
+        \textbf{Teilnehmer} & \textbf{Herzfrequenzvariabilität} & \textbf{Herzfrequenz} \\
+        \hline
+        Hauke & 113.35 & 60.21 \\
+        Lasse & 57.51 & 73.44 \\
+        Elias & 83.23 & 68.04 \\
+        \hline
+    \end{tabularx}
+    \caption[Herzfrequenzvariabilität und Herzfrequenz]{Die errechnete Herzfrequenzvariabilität (in ms) und Herzfrequenz (in bpm) für alle Teilnehmenden}
+    \label{tab:vergleich_errechnete_hrv_und_hr}
+\end{table}
+
+In Tabelle \ref{tab:vergleich_errechnete_hrv_und_hr} sind die errechneten Werte für die Herzfrequenzvariabilität (in ms) und die Herzfrequenz (in bpm) für alle Teilnehmenden dargestellt.
+Die Herzfrequenzvariabilität wurde als Standardabweichung der RR-Intervalle berechnet, während die Herzfrequenz aus der durchschnittlichen Anzahl der Herzschläge pro Minute abgeleitet wurde.
+Wie in der Tabelle zu sehen ist, sind die Unterschiede zwischen den Teilnehmenden sowohl in der Herzfrequenzvariabilität als auch in der Herzfrequenz deutlich erkennbar. Die Ursachen für diese
+Unterschiede können von individuellen physiologischen Faktoren und von externen Messbedingungen (bspw. lose sitzende Elektroden) abhängen. 
+
+\subsection{Aufgabe 7: Einordnung unserer Daten im Kontext der Daten der Mitstudierenden}
+Im Histogramm zur Verteilung der Herzfrequenzen in Abbildung \ref{fig:histogram_herzfrequenz} zeigt sich, dass die mittlere Herzfrequenz bei Frauen und Männern ähnlich verteilt ist,
+wobei beide Geschlechter einen Mittelwert um 63-65 bpm aufweisen.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/Histogramm_Herzfrequenz.png}
     \caption{Histogramm der Herzfrequenzverteilung nach Geschlecht}
     \label{fig:histogram_herzfrequenz}
 \end{figure}
 
 Im Histogramm zur Herzfrequenzvariabilität \ref{fig:histogram_hfv} ist eine größere Streuung erkennbar,
 wobei beide Geschlechter eine breite Verteilung zeigen.
-\begin{figure}[htbp]
+
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/Histogramm_HFV.png}
+    \includegraphics[width=0.7\textwidth]{figures/Histogramm_HFV.png}
     \caption{Histogramm der Herzfrequenzvariabilität nach Geschlecht}
     \label{fig:histogram_hfv}
 \end{figure}
 Die Daten der Mitstudierenden wurden aus dem geteilten Google Sheet \cite{GoogleSheetHRKurs} entnommen und leicht angepasst, da eindeutig Tippfehler eingebaut wurden.
-Für beide Histogramm lässt sich sagen, dass die großen Überlappungen zwischen den Geschlechtern darauf hindeuten,
+Für beide Histogramme lässt sich sagen, dass die großen Überlappungen zwischen den Geschlechtern darauf hindeuten,
 dass die interindividuelle Variabilität größer ist als geschlechtsspezifische Unterschiede sind. Mögliche Ursachen für nicht erkennbare 
 Geschlechtsunterschiede könnten die relativ kleine Stichprobengröße, ähnliche Fitnesslevel der Teilnehmenden oder unterschiedliche
 Messbedingungen sein.
