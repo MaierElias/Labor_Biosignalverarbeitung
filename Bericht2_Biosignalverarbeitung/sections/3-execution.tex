@@ -10,7 +10,7 @@
     \label{fig:serial_plotter_noise_and_normal}
 \end{figure}
 
-Im seriellen Plotter wurden die Rohdaten des EKG-Signals visualisiert. Wie in Abbildung \ref{fig:serial_plotter_noise_and_normal} zu beobachten ist, zeigte sich
+Im seriellen Plotter wurden die Rohdaten des EKG-Signals visualisiert. Wie in Abbildung \ref{fig:serial_plotter_noise_and_normal} abgebildet konnte beobachtet werden,
 dass, sobald der Laptop über ein Netzteil mit Strom versorgt wurde, starke Störungen in Form von Noise im Signal auftraten.
 Diese Störung hat eine Frequenz von circa 50 Hz, weshalb davon auszugehen ist, dass es sich um Netzbrummen handelt.
 Dies wurde durch die Verwendung des Laptops im Akkubetrieb vermieden. Alternativ wäre eine Filterung des Signals mit Tiefpassfiltern möglich gewesen.
@@ -31,12 +31,12 @@ In Abbildung \ref{fig:ecg_plot_all_participants} sind die Rohdaten der Ruhe-EKGs
     \label{fig:ecg_with_marked_waves_elias}
 \end{figure}
 
-In Abbildung \ref{fig:ecg_with_marked_waves_elias} ist das EKG-Signal von Elias mit den markierten P- (rot), QRS- (grün) und T-Wellen (gelb) dargestellt.
+In Abbildung \ref{fig:ecg_with_marked_waves_elias} ist das EKG-Signal von Elias mit den markierten P-(rot), QRS-(grün) und T-Wellen(gelb) dargestellt.
 Die P-Welle repräsentiert die Depolarisation der Vorhöfe. Sie entsteht, wenn der elektrische Impuls vom Sinusknoten ausgeht und
 sich über beide Vorhöfe ausbreitet. Dies führt zur Kontraktion der Vorhöfe und zum Bluttransport in die Herzkammern. Die P-Welle
 ist normalerweise klein und positiv.
 Der QRS-Komplex zeigt die Depolarisation der Herzkammern. Dieser scharfe, große Ausschlag entsteht, wenn sich der elektrische
-Impuls vom AV-Knoten über das His-Bündel, die Tawara-Schenkel und die Purkinje-Fasern schnell durch die Ventrikel ausbreitet. Die resultierende Kontraktion der
+Impuls vom AV-Knoten über das His-Bündel und die Purkinje-Fasern schnell durch die Ventrikel ausbreitet. Die resultierende Kontraktion der
 Ventrikel pumpt das Blut in den Lungen- und Körperkreislauf. Der QRS-Komplex überlagert gleichzeitig die Repolarisation der Vorhöfe, die
 dadurch im EKG nicht sichtbar ist.
 Die T-Welle repräsentiert die Repolarisation der Ventrikel. Nach der Kontraktion kehren die Herzkammerzellen in ihren Ruhezustand zurück.
@@ -54,13 +54,13 @@ Dieser Wert wird dann nur an die Console weitergegeben, wenn eine Zeit von 1000 
 \label{sssec:PythonCode}
 Der Code serialRead \cite{serialRead.ipynb} wurde ebenfalls bereitgestellt. 
 In diesem Skript können die serielle Schnittstelle, die Baudrate und die Dauer der Aufnahme sowie der Name des Outputdokuments als Variablen gesetzt werden.
-Die Funktion \texttt{sampling()} öffnet die serielle Schnittstelle und das Outputdkoument und liest dann die Daten für die angegebene Dauer ein.
+Die Funktion sampling() öffnet die serielle Schnittstelle und das Outputdkoument und liest dann die Daten für die angegebene Dauer ein.
 Die eingelesenen Daten werden in eine Liste gespeichert und anschließend in das Outputdokument geschrieben.
 Danach werden Informationen zur gemittelten Samplingrate über die gesamte Aufnahmezeit, totale Anzahl an Samples und vergangener Zeit sowie der Speicherbestätigung ausgegeben.
 Die Funktion gibt den Wert der errechneten Sampling Rate zurück.
 Im zweiten Teil des Codes werden die Daten aus dem Outputdokument eingelesen und in einem Plot visualisiert, um direkt die Qualität der Aufnahme beurteilen zu können.
 
-\subsection{Aufgabe 5: Fünf-Sekunden-Plot des Ruhe-EKG}
+\subsection{Aufgabe 5: Fünf-Sekunden-Plot der Ruhe-EKGs}
 
 \begin{figure}[h]
     \centering
@@ -70,61 +70,39 @@ Im zweiten Teil des Codes werden die Daten aus dem Outputdokument eingelesen und
 \end{figure}    
 
 Abbildung \ref{fig:ecg_with_rwaves_elias} zeigt das EKG-Signal von Elias mit den markierten R-Zacken in einem ausgesuchten Bereich mit ca. 5 Sekunden Länge.
-Die Positionen der R-Zacken wurden durch die bereitgestellten Funktionen in Lab2Functions \cite{Lab2Functions.py} ermittelt.
+Die Positionen der R-Zacken wurden durch die Funktion \texttt{find\_peaks()} aus dem Modul \texttt{scipy.signal} ermittelt.
 
 \subsection{Aufgabe 6: Errechnete Daten der Ruhe-EKGs}
 
-\begin{table}[h]
-    \centering
-    \begin{tabularx}{\textwidth}{l l X}
-        \hline
-        \textbf{Teilnehmer} & \textbf{Herzfrequenzvariabilität} & \textbf{Mittlere Herzfrequenz} \\
-        \hline
-        Hauke & 113.35 & 60.21 \\
-        Lasse & 57.51 & 73.44 \\
-        Elias & 83.23 & 68.04 \\
-        \hline
-    \end{tabularx}
-    \caption[Herzfrequenzvariabilität und mittlere Herzfrequenz]{Die errechnete Herzfrequenzvariabilität (in ms) und mittlere Herzfrequenz (in bpm) für alle Teilnehmenden}
-    \label{tab:vergleich_errechnete_hrv_und_hr}
-\end{table}
-
-In Tabelle \ref{tab:vergleich_errechnete_hrv_und_hr} sind die errechneten Werte für die Herzfrequenzvariabilität (in ms) und die mittlere Herzfrequenz (in bpm) für alle Teilnehmenden dargestellt.
-Die Herzfrequenzvariabilität wurde als Standardabweichung der RR-Intervalle berechnet, während die mittlere Herzfrequenz aus der durchschnittlichen Anzahl der Herzschläge pro Minute abgeleitet wurde.
-Wie in der Tabelle zu sehen ist, sind die Unterschiede zwischen den Teilnehmenden sowohl in der Herzfrequenzvariabilität als auch in der mittleren Herzfrequenz deutlich erkennbar. Die Ursachen für diese
-Unterschiede können von individuellen physiologischen Faktoren und von externen Messbedingungen (bspw. lose sitzende Elektroden oder Bewegungsartefakte) abhängen. 
-
-\subsection{Aufgabe 7: Einordnung unserer Daten im Kontext der Daten der Mitstudierenden}
-Im Histogramm zur Verteilung der Herzfrequenzen in Abbildung \ref{fig:histogram_herzfrequenz} zeigt sich, dass die mittlere Herzfrequenz bei Frauen und Männern ähnlich verteilt ist,
+\subsection{Aufgabe 7: Einordnung der Daten im Kontext derer der Mitstudierenden}
+Im Histogramm zur Verteilung der Herzfrequenzen \ref{fig:histogram_herzfrequenz} zeigt sich, dass die mittlere Herzfrequenz bei Frauen und Männern ähnlich verteilt ist,
 wobei beide Geschlechter einen Mittelwert um 63-65 bpm aufweisen.
-
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/Histogramm_Herzfrequenz.png}
+    \includegraphics[width=0.5\textwidth]{figures/Histogramm_Herzfrequenz.png}
     \caption{Histogramm der Herzfrequenzverteilung nach Geschlecht}
     \label{fig:histogram_herzfrequenz}
 \end{figure}
 
 Im Histogramm zur Herzfrequenzvariabilität \ref{fig:histogram_hfv} ist eine größere Streuung erkennbar,
 wobei beide Geschlechter eine breite Verteilung zeigen.
-
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/Histogramm_HFV.png}
+    \includegraphics[width=0.5\textwidth]{figures/Histogramm_HFV.png}
     \caption{Histogramm der Herzfrequenzvariabilität nach Geschlecht}
     \label{fig:histogram_hfv}
 \end{figure}
 Die Daten der Mitstudierenden wurden aus dem geteilten Google Sheet \cite{GoogleSheetHRKurs} entnommen und leicht angepasst, da eindeutig Tippfehler eingebaut wurden.
-Für beide Histogramme lässt sich sagen, dass die großen Überlappungen zwischen den Geschlechtern darauf hindeuten,
-dass die interindividuelle Variabilität größer ist als die geschlechtsspezifischen Unterschiede. Mögliche Ursachen für nicht erkennbare 
+Für beide Histogramm lässt sich sagen, dass die großen Überlappungen zwischen den Geschlechtern darauf hindeuten,
+dass die interindividuelle Variabilität größer ist als geschlechtsspezifische Unterschiede sind. Mögliche Ursachen für nicht erkennbare 
 Geschlechtsunterschiede könnten die relativ kleine Stichprobengröße, ähnliche Fitnesslevel der Teilnehmenden oder unterschiedliche
 Messbedingungen sein.
 \newline
 Unsere Werte für die Herzfrequenz und die Herzfrequenzvariabilität liegen im erwarteten Bereich für gesunde Erwachsene in Ruhe.
 Auch im direkten Vergleich mit den Werten der Mitstudierenden wird deutlich, dass sich unsere Werte im ähnlichen Bereich bewegen.
 Generell ist wichtig zu erwähnen, dass sich viele sehr fitte Personen in der Gruppe befinden, was die tendenziell niedrigeren Herzfrequenzen
-erklären könnte. Abgesehen davon, dass die Herzfrequenzvariabilität bei einigen Messungen über den für gesunde Erwachsene erwarteten Referenzwerten liegt, 
-deutet dies auf mögliche Messungenauigkeiten oder Bewegungsartefakte hin.
+erklären könnte. Außer der Tatsache, dass die Variabilität der Herzfrequenzen bei einigen Anderen als auch bei Hauke höher ist, als die, 
+die normalerweise für gesunde Erwachsene erwartet werden. Das lässt auf eine etwas ungenaue Messung oder Bewegungsartefakte schließen.
 \newline
 Die Literatur gibt für die Ruhe-Herzfrequenz bei gesunden Erwachsenen einen Normalbereich von 60-100 bpm an, wobei der Durchschnitt bei etwa
 70-75 bpm liegt. Gut trainierte Personen können Werte von 40-60 bpm aufweisen. Die Klassendaten zeigen ohne Berücksichtigung der extremen
@@ -178,5 +156,29 @@ schnellere Erholung der Herzfrequenz, da ihr Herz-Kreislauf-System effizienter a
 schneller auf Ruhebedingungen umschalten kann.
 
 \subsection{Aufgabe 11: Berechnen des metabolischen Energieverbrauchs}
+In der Funktion \texttt{analyze_ecg_and_plot()} aus der Datei \ref{analyzeHearthdata} wurde die Formel zur Berechnung des Energieverbrauchs 
+aus Model 1 für Männer aus dem Paper \cite{Hiilloskorpi2003HeartRateEnergyExpenditure} implementiert.
+\newline
+In Abbildung \ref{fig:energy_expenditure_belastung.png} ist der berechnete Energieverbrauch während des Belastungs-EKGs dargestellt.
+Darin ist wie erwartet zu erkennen, dass der Energieverbrauch während der Belastungsphase deutlich ansteigt und in in der Erholungsphase 
+wieder abfällt, allerdings nicht sofort auf das Ruhe-Niveau. Der Energieverbauch ist direkt an die Herzfrequenz gekoppelt, weshalb die 
+Annäherung des Models an die erwarteten Werte recht gut ist, da intuitiv mit steigender Belastung auch der Energieverbrauch steigt. Dieser 
+Trend ist in der Abbildung \ref{fig:energy_expenditure_belastung.png} klar erkennbar.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/Energieverbrauch_Belastung.png}
+    \caption{Berechneter Energieverbrauch während des Belastungs-EKGs}
+    \label{fig:energy_expenditure_belastung.png}
+\end{figure}
 
 \subsection{Aufgabe 12: Einordnung des Energieverbrauchs und entsprechender Code}
+Der gesamte Energieverbrauch über das Belasungs-EKG beträgt circa \newline
+-> HIER WERT EINFÜGEN <- \newline
+Das entspricht umgerechnet etwa:
+\begin{itemize}
+    \item HIER WERT EINFÜGEN $Joule$
+    \item HIER WERT EINFÜGEN $Kalorien$
+    \item HIER WERT EINFÜGEN $Rittersportafeln$
+    \item HIER WERT EINFÜGEN $Bier$
+    \item HIER WERT EINFÜGEN $Anteil des Kalorienbedarfs von Lasse$
+\end{itemize}
