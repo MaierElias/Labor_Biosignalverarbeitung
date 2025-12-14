@@ -156,29 +156,41 @@ schnellere Erholung der Herzfrequenz, da ihr Herz-Kreislauf-System effizienter a
 schneller auf Ruhebedingungen umschalten kann.
 
 \subsection{Aufgabe 11: Berechnen des metabolischen Energieverbrauchs}
-In der Funktion \texttt{analyze_ecg_and_plot()} aus der Datei \ref{analyzeHearthdata} wurde die Formel zur Berechnung des Energieverbrauchs 
-aus Model 1 für Männer aus dem Paper \cite{Hiilloskorpi2003HeartRateEnergyExpenditure} implementiert.
-\newline
-In Abbildung \ref{fig:energy_expenditure_belastung.png} ist der berechnete Energieverbrauch während des Belastungs-EKGs dargestellt.
-Darin ist wie erwartet zu erkennen, dass der Energieverbrauch während der Belastungsphase deutlich ansteigt und in in der Erholungsphase 
-wieder abfällt, allerdings nicht sofort auf das Ruhe-Niveau. Der Energieverbauch ist direkt an die Herzfrequenz gekoppelt, weshalb die 
-Annäherung des Models an die erwarteten Werte recht gut ist, da intuitiv mit steigender Belastung auch der Energieverbrauch steigt. Dieser 
-Trend ist in der Abbildung \ref{fig:energy_expenditure_belastung.png} klar erkennbar.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/Energieverbrauch_Belastung.png}
-    \caption{Berechneter Energieverbrauch während des Belastungs-EKGs}
-    \label{fig:energy_expenditure_belastung.png}
-\end{figure}
+
+%In der Funktion \texttt{analyze_ecg_and_plot()} aus der Datei \ref{analyzeHearthdata} wurde die Formel zur Berechnung des Energieverbrauchs 
+%aus Model 1 für Männer aus dem Paper \cite{Hiilloskorpi2003HeartRateEnergyExpenditure} implementiert.
+%\newline
+%In Abbildung \ref{fig:energy_expenditure_belastung.png} ist der berechnete Energieverbrauch während des Belastungs-EKGs dargestellt.
+%Darin ist wie erwartet zu erkennen, dass der Energieverbrauch während der Belastungsphase deutlich ansteigt und in in der Erholungsphase 
+%wieder abfällt, allerdings nicht sofort auf das Ruhe-Niveau. Der Energieverbauch ist direkt an die Herzfrequenz gekoppelt, weshalb die 
+%Annäherung des Models an die erwarteten Werte recht gut ist, da intuitiv mit steigender Belastung auch der Energieverbrauch steigt. Dieser 
+%Trend ist in der Abbildung \ref{fig:energy_expenditure_belastung.png} klar erkennbar.
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=0.7\textwidth]{figures/Energieverbrauch_Belastung.png}
+%    \caption{Berechneter Energieverbrauch während des Belastungs-EKGs}
+%    \label{fig:energy_expenditure_belastung.png}
+%\end{figure}
 
 \subsection{Aufgabe 12: Einordnung des Energieverbrauchs und entsprechender Code}
 Der gesamte Energieverbrauch über das Belasungs-EKG beträgt circa \newline
 -> HIER WERT EINFÜGEN <- \newline
 Das entspricht umgerechnet etwa:
-\begin{itemize}
-    \item HIER WERT EINFÜGEN $Joule$
-    \item HIER WERT EINFÜGEN $Kalorien$
-    \item HIER WERT EINFÜGEN $Rittersportafeln$
-    \item HIER WERT EINFÜGEN $Bier$
-    \item HIER WERT EINFÜGEN $Anteil des Kalorienbedarfs von Lasse$
-\end{itemize}
+\begin{table}[ht]
+    \centering
+    \begin{tabularx}{\textwidth}{l l X}
+        \hline
+        Typ & Modell & Verwendung \\
+        \hline
+        Microcontroller & Sparkfun RedBoard & Erfassung der Sensordaten und Übertragung an den Computer \\
+        Sensor & EMG/EKG Sensor & Messung der elektrischen Signale des Herzens \\
+        Software & Arduino IDE 1.8.19 & Programmierung des Arduino Mikrocontrollers \\
+        Software & Python 3.9 (Jupyter Notebook / VS Code) & Verarbeitung, Aufzeichnung und Visualisierung der Sensordaten \\
+        USB-Kabel & Standard USB A to B Kabel & Verbindung des Arduino mit dem Computer mittels COM4 \\
+        3 Jumper Kabel & Standard Jumper Kabel & Verbindung des EMG-Sensors mit dem Arduino \\
+        Elektroden & Standard EKG-Elektroden & Ableitung der elektrischen Signale des Herzens \\
+        \hline
+    \end{tabularx}
+    \caption[Verwendete Komponenten und Software]{Die im Rahmen der Laboreinheit verwendeten Komponenten und Software}
+    \label{tab:verwendete_komponenten}
+\end{table}
