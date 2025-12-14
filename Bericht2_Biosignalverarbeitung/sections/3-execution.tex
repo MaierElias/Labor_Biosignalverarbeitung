@@ -36,7 +36,7 @@ Die P-Welle repräsentiert die Depolarisation der Vorhöfe. Sie entsteht, wenn d
 sich über beide Vorhöfe ausbreitet. Dies führt zur Kontraktion der Vorhöfe und zum Bluttransport in die Herzkammern. Die P-Welle
 ist normalerweise klein und positiv.
 Der QRS-Komplex zeigt die Depolarisation der Herzkammern. Dieser scharfe, große Ausschlag entsteht, wenn sich der elektrische
-Impuls vom AV-Knoten über das His-Bündel und die Purkinje-Fasern schnell durch die Ventrikel ausbreitet. Die resultierende Kontraktion der
+Impuls vom AV-Knoten über das His-Bündel, die Tawara-Schenkel und die Purkinje-Fasern schnell durch die Ventrikel ausbreitet. Die resultierende Kontraktion der
 Ventrikel pumpt das Blut in den Lungen- und Körperkreislauf. Der QRS-Komplex überlagert gleichzeitig die Repolarisation der Vorhöfe, die
 dadurch im EKG nicht sichtbar ist.
 Die T-Welle repräsentiert die Repolarisation der Ventrikel. Nach der Kontraktion kehren die Herzkammerzellen in ihren Ruhezustand zurück.
@@ -54,7 +54,7 @@ Dieser Wert wird dann nur an die Console weitergegeben, wenn eine Zeit von 1000 
 \label{sssec:PythonCode}
 Der Code serialRead \cite{serialRead.ipynb} wurde ebenfalls bereitgestellt. 
 In diesem Skript können die serielle Schnittstelle, die Baudrate und die Dauer der Aufnahme sowie der Name des Outputdokuments als Variablen gesetzt werden.
-Die Funktion sampling() öffnet die serielle Schnittstelle und das Outputdkoument und liest dann die Daten für die angegebene Dauer ein.
+Die Funktion \texttt{sampling()} öffnet die serielle Schnittstelle und das Outputdkoument und liest dann die Daten für die angegebene Dauer ein.
 Die eingelesenen Daten werden in eine Liste gespeichert und anschließend in das Outputdokument geschrieben.
 Danach werden Informationen zur gemittelten Samplingrate über die gesamte Aufnahmezeit, totale Anzahl an Samples und vergangener Zeit sowie der Speicherbestätigung ausgegeben.
 Die Funktion gibt den Wert der errechneten Sampling Rate zurück.
@@ -78,21 +78,21 @@ Die Positionen der R-Zacken wurden durch die bereitgestellten Funktionen in Lab2
     \centering
     \begin{tabularx}{\textwidth}{l l X}
         \hline
-        \textbf{Teilnehmer} & \textbf{Herzfrequenzvariabilität} & \textbf{Herzfrequenz} \\
+        \textbf{Teilnehmer} & \textbf{Herzfrequenzvariabilität} & \textbf{Mittlere Herzfrequenz} \\
         \hline
         Hauke & 113.35 & 60.21 \\
         Lasse & 57.51 & 73.44 \\
         Elias & 83.23 & 68.04 \\
         \hline
     \end{tabularx}
-    \caption[Herzfrequenzvariabilität und Herzfrequenz]{Die errechnete Herzfrequenzvariabilität (in ms) und Herzfrequenz (in bpm) für alle Teilnehmenden}
+    \caption[Herzfrequenzvariabilität und mittlere Herzfrequenz]{Die errechnete Herzfrequenzvariabilität (in ms) und mittlere Herzfrequenz (in bpm) für alle Teilnehmenden}
     \label{tab:vergleich_errechnete_hrv_und_hr}
 \end{table}
 
-In Tabelle \ref{tab:vergleich_errechnete_hrv_und_hr} sind die errechneten Werte für die Herzfrequenzvariabilität (in ms) und die Herzfrequenz (in bpm) für alle Teilnehmenden dargestellt.
-Die Herzfrequenzvariabilität wurde als Standardabweichung der RR-Intervalle berechnet, während die Herzfrequenz aus der durchschnittlichen Anzahl der Herzschläge pro Minute abgeleitet wurde.
-Wie in der Tabelle zu sehen ist, sind die Unterschiede zwischen den Teilnehmenden sowohl in der Herzfrequenzvariabilität als auch in der Herzfrequenz deutlich erkennbar. Die Ursachen für diese
-Unterschiede können von individuellen physiologischen Faktoren und von externen Messbedingungen (bspw. lose sitzende Elektroden) abhängen. 
+In Tabelle \ref{tab:vergleich_errechnete_hrv_und_hr} sind die errechneten Werte für die Herzfrequenzvariabilität (in ms) und die mittlere Herzfrequenz (in bpm) für alle Teilnehmenden dargestellt.
+Die Herzfrequenzvariabilität wurde als Standardabweichung der RR-Intervalle berechnet, während die mittlere Herzfrequenz aus der durchschnittlichen Anzahl der Herzschläge pro Minute abgeleitet wurde.
+Wie in der Tabelle zu sehen ist, sind die Unterschiede zwischen den Teilnehmenden sowohl in der Herzfrequenzvariabilität als auch in der mittleren Herzfrequenz deutlich erkennbar. Die Ursachen für diese
+Unterschiede können von individuellen physiologischen Faktoren und von externen Messbedingungen (bspw. lose sitzende Elektroden oder Bewegungsartefakte) abhängen. 
 
 \subsection{Aufgabe 7: Einordnung unserer Daten im Kontext der Daten der Mitstudierenden}
 Im Histogramm zur Verteilung der Herzfrequenzen in Abbildung \ref{fig:histogram_herzfrequenz} zeigt sich, dass die mittlere Herzfrequenz bei Frauen und Männern ähnlich verteilt ist,
@@ -116,15 +116,15 @@ wobei beide Geschlechter eine breite Verteilung zeigen.
 \end{figure}
 Die Daten der Mitstudierenden wurden aus dem geteilten Google Sheet \cite{GoogleSheetHRKurs} entnommen und leicht angepasst, da eindeutig Tippfehler eingebaut wurden.
 Für beide Histogramme lässt sich sagen, dass die großen Überlappungen zwischen den Geschlechtern darauf hindeuten,
-dass die interindividuelle Variabilität größer ist als geschlechtsspezifische Unterschiede sind. Mögliche Ursachen für nicht erkennbare 
+dass die interindividuelle Variabilität größer ist als die geschlechtsspezifischen Unterschiede. Mögliche Ursachen für nicht erkennbare 
 Geschlechtsunterschiede könnten die relativ kleine Stichprobengröße, ähnliche Fitnesslevel der Teilnehmenden oder unterschiedliche
 Messbedingungen sein.
 \newline
 Unsere Werte für die Herzfrequenz und die Herzfrequenzvariabilität liegen im erwarteten Bereich für gesunde Erwachsene in Ruhe.
 Auch im direkten Vergleich mit den Werten der Mitstudierenden wird deutlich, dass sich unsere Werte im ähnlichen Bereich bewegen.
 Generell ist wichtig zu erwähnen, dass sich viele sehr fitte Personen in der Gruppe befinden, was die tendenziell niedrigeren Herzfrequenzen
-erklären könnte. Außer der Tatsache, dass die Variabilität der Herzfrequenzen bei einigen Anderen als auch bei Hauke höher ist, als die, 
-die normalerweise für gesunde Erwachsene erwartet werden. Das lässt auf eine etwas ungenaue Messung oder Bewegungsartefakte schließen.
+erklären könnte. Abgesehen davon, dass die Herzfrequenzvariabilität bei einigen Messungen über den für gesunde Erwachsene erwarteten Referenzwerten liegt, 
+deutet dies auf mögliche Messungenauigkeiten oder Bewegungsartefakte hin.
 \newline
 Die Literatur gibt für die Ruhe-Herzfrequenz bei gesunden Erwachsenen einen Normalbereich von 60-100 bpm an, wobei der Durchschnitt bei etwa
 70-75 bpm liegt. Gut trainierte Personen können Werte von 40-60 bpm aufweisen. Die Klassendaten zeigen ohne Berücksichtigung der extremen
