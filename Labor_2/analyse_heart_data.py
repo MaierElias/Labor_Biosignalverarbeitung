@@ -200,11 +200,11 @@ def analyze_ecg_and_plot(file_path, window_size=10):
         print(
             f"Mittelwerte -> Ruhe: {mean_resting:.1f}, Belastung: {mean_test:.1f}, Erholung: {mean_end:.1f}")
 
-        # --- Vertikale Trennlinien ---
+        # --- Vertikale Trennlinien - --
         plt.axvline(t_rest_end, color='gray', linestyle='--', alpha=0.8)
         plt.axvline(t_test_end, color='gray', linestyle='--', alpha=0.8)
 
-        # --- Horizontale Durchschnittslinien (mit hlines für exakte Länge) ---
+        # --- Horizontale Durchschnittslinien(mit hlines für exakte Länge) - --
         t_start = windowed_times[0]
         t_end_meas = windowed_times[-1]
 
@@ -227,8 +227,6 @@ def analyze_ecg_and_plot(file_path, window_size=10):
 
         plt.xlabel('Zeit / $ms$', fontsize=12)
         plt.ylabel('Herzfrequenz / $bpm$', fontsize=12)
-        plt.title(f'Herzfrequenz während Belastung (Fenster={window_size} Schläge)',
-                  fontsize=14, fontweight='bold')
         plt.grid(True, which='both', linestyle=':', linewidth=0.5)
         plt.legend()
         plt.tight_layout()
