@@ -12,8 +12,7 @@ Damit die LaTeX-Dokumente korrekt kompiliert werden können, wird empfohlen folg
 - Strawberry Perl (für Windows unter folgendem Link: https://strawberryperl.com/, hier kann die .msi Datei heruntergeladen und installiert werden)
 
 # Projektübersicht
-Im Unterordner `Labor_1` befindet sich der Code für das erste Laborprojekt und
-im Unterordner `Labor_2` der Code für das zweite Laborprojekt.
+Im Unterordner `Labor_1` befindet sich der Code für das erste Laborprojekt, im Unterordner `Labor_2` der Code für das zweite Laborprojekt und im Unterordner `Labor_3` der Code für das dritte Labor.
 
 Im Unterordner `Bericht_Biosignalverarbeitung` befindet sich der Bericht zum Laborprojekt 1 und im Unterordner `Bericht2_Biosignalverarbeitung` der Bericht zum Laborprojekt 2.
 
