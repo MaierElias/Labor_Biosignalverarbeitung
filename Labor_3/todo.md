@@ -56,3 +56,8 @@ In diesem Experiment werden Sie eine Ermüdung des Muskels messen, indem Sie ein
 3. Messen Sie die maximale Kontraktion (so stark wie möglich!) über volle 10-15 Sekunden.
 
 4. Machen Sie eine Pause von mind. 60 Sekunden und wiederholen Sie die Messung zweimal, sodass Sie drei Datensätze der Ermüdung erhalten. Benennen Sie diese ordentlich (Fatigue1,…).
+
+
+# Notizen
+- Daten die der Code ausgibt ist ungefilter!
+- Lab3Function führt 3 Daten zusammen -> Variablennamen müssen dafür stimmen
