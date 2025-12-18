@@ -1,0 +1,102 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[left=3.5cm,right=2.5cm,top=3cm,bottom=4cm,headsep=7ex,footskip=1.5cm]{geometry}
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage[straightvoltages]{circuitikz}
+\usepackage{textgreek}
+\usepackage{matlab-prettifier}
+\usepackage{import}
+\usepackage{comment}
+
+% Suppress minitoc hint messages written to the log
+\usepackage{silence}
+\WarningFilter{minitoc}{Some hints have been written}
+
+% Für Plots mit Achsen und CSV-Dateien
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{groupplots, dateplot}
+
+% Variablen für Titel und Deckblatt
+\def\titlelength{0}
+\def\type{Labor Bericht}
+\def\lecture{Biosignalverarbeitung}
+\def\codeStudydegreeyear{MGST-B-3-BB-BS-ILV}
+\def\subtitle{Gruppe A6: Labor 3}
+\def\semester{Wintersemester 2025/26}
+\def\student{Moritz Mattes \newline Elias Maier \newline Hauke Döllefeld}
+\def\lecturer{Dr. Aitor Morillo\newline Dr. Gerda Strutzenberger}
+
+\usepackage{ifthen}
+\newboolean{skript}
+\setboolean{skript}{true}
+
+\input{sections/sub/_definitions/definitions_mci.tex}
+\graphicspath{{sections/sub/_figs/}{../figs/}}
+
+\begin{document}
+\pagenumbering{Roman}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{sections/sub/_definitions/deckblatt_mci.tex}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{page}{2}
+\tableofcontents
+\vspace{2cm}
+\newpage
+
+% Arabische Seitenzahlen ab hier
+\setcounter{romancount}{\value{page}}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+% === Hauptteile des Berichts ===
+\input{sections/1-introduction.tex}
+\clearpage
+
+\input{sections/2-preparation.tex}
+\newpage
+
+\input{sections/3-execution.tex}
+\newpage
+
+\input{sections/4-result.tex}
+
+% === Anhang, Verzeichnisse ===
+\newpage
+\pagenumbering{Roman}
+\setcounter{page}{\value{romancount}}
+
+% Literaturverzeichnis
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\bibliographystyle{IEEEtran}
+\renewcommand*{\refname}{Literaturverzeichnis}
+\bibliography{literature}
+
+\vspace{1em}
+\noindent
+\textnormal{Bei der Überarbeitung von Textstellen und beim Erstellen von Code für das Einlesen und Plotten der Dataframes wurden Chat-GPT und Claude Sonnet verwendet.}
+
+% Abbildungsverzeichnis
+\vspace{1cm}
+\newpage
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\listoffigures	
+
+% Tabellenverzeichnis
+\newpage
+\addcontentsline{toc}{section}{Tabellenverzeichnis}
+\listoftables
+\end{document}
