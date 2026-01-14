@@ -1,0 +1,14 @@
+- Antworten auf Aufgaben explizit kennzeichnen
+- Achsen Beschriftungen
+	- Beschriftungen groß genug (2-3x größer -> in Excel Schriftgröße 14)
+	- manchmal ist es sinnvoll bei 0 anzufangen (Je nach Aufgabe)
+	- Einheit __NICHT__ in eckigen Klammern
+	- Y-Achsenskalierung vergleichbar machen
+- Histogramme
+	- Histogramm haben Gruppen
+- Standardabweichungen möglicherweise mit einzubeziehen
+- Wie viele Kommastellen gebe ich an? (Wie viele kann ich messen)
+- SD vs SDNN
+- Literatur angeben -> vor allem wenn auf Literatur hingewiesen wird (Woher weiß man wie viel Kalorien ein Bier hat?)
+- IEEE Standard nochmal anschauen
+- Variablen in den Formen benennen
