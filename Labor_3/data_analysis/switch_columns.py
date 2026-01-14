@@ -23,9 +23,7 @@ def swap_columns(filename):
 
 # Liste aller deiner Dateien
 files = [
-    'MVC1.csv', 'MVC2.csv', 'MVC3.csv',
-    'Weight1.csv', 'Weight2.csv', 'Weight3.csv',
-    'Fatigue1.csv', 'Fatigue2.csv', 'Fatigue3.csv'
+"Weight3.csv"
 ]
 
 for f in files:
