@@ -38,10 +38,20 @@ Die verwendeten Komponenten sind in Tabelle \ref{tab:verwendete_komponenten} auf
   \label{tab:verwendete_komponenten}
 \end{table}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/components_labeled.jpeg}
+    \caption{Aufbau des Messsystems mit Beschriftung der einzelnen Komponenten}
+    \label{fig:versuchsaufbau_lab3}
+\end{figure}
+
 Zwischen dem Arduino und dem EMG-Sensor über das Qwicc Kabel wird das I2C (Inter-Integrated Circuit) Kommunikationsprotokoll verwendet. I2C ist ein serielles Kommunikationsprotokoll, das es ermöglicht,
 Daten zwischen mehreren integrierten Schaltkreisen (ICs) über nur zwei Leitungen zu übertragen: eine für die Daten (SDA) und eine für den Takt (SCL).
 I2C wurde auf eine Baudrate von 500000 bps eingestellt, um eine ausreichend schnelle Datenübertragung zu gewährleisten.
 Der Arduino empfängt die Daten über die I2C-Leitungen, verarbeitet sie und leitet sie anschließend an den Computer zur weiteren Analyse und Visualisierung weiter.
+\newline
+In Abbildung \ref{fig:versuchsaufbau_lab3} ist der gesamte Versuchsaufbau zu sehen, inklusive aller
+verwendeten Komponenten. Die Elektroden sind am Arm des Probanden befestigt, um die EMG-Signale des Bizeps Brachii zu erfassen.
 
 
 \subsection{Aufgabe 2: MVC Durchführung}
