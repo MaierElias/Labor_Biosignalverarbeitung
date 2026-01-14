@@ -1,30 +1,28 @@
 \section{Beantwortung der Aufgaben des Labors zu EMG-Signalen}
 
 \subsection{Aufgabe 1: Darstellung des Messsystems}
-
-    zwei Sätzen zur Erklärung der BUS Typen und Geschwindigkeiten.
-    Zudem auch für die einzelnen Komponenten.
-
+Das in Abbildung \ref{fig:blockschlaltbild_lab3} dargestellte Blockschaltbild veranschaulicht den
+Aufbau des Messsystems zur Erfassung und Analyse von EMG-Signalen im Rahmen der Laboreinheit.
+Die verwendeten Komponenten sind in Tabelle \ref{tab:verwendete_komponenten} aufgelistet und durchnummeriert.
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{figures/Blockschaltbild_lab3.png}
     \caption{Blockschaltbild des Messsystems}
     \label{fig:blockschlaltbild_lab3}
 \end{figure}
-
 \begin{table}[ht]
   \centering
   \begin{tabularx}{\textwidth}{X c X}
     \hline
     Komponente & Nummer & Verwendung \\
     \hline
-    Microcontroller,\\ Sparkfun RedBoard & 1 &
+    Sparkfun RedBoard & 1 &
       Erfassung der Sensordaten und Übertragung an den Computer \\
     EMG Sensor & 2 &
       Messung der elektrischen Signale des Muskels \\
     Arduino IDE 1.8.19 & 3 &
       Programmierung des Arduino Mikrocontrollers \\
-    Python 3.9\\ (Jupyter Notebook / VS Code) & 4 &
+    Python 3.9 & 4 &
       Verarbeitung, Aufzeichnung und Visualisierung der Sensordaten \\
     12 Bit ADC & 5 &
       Wandlung der analogen Sensordaten in digitale Werte \\
@@ -39,6 +37,10 @@
   \caption[Verwendete Komponenten und Software]{Die im Rahmen der Laboreinheit verwendeten Komponenten und Software}
   \label{tab:verwendete_komponenten}
 \end{table}
+
+Zwischen dem Arduino und dem EMG-Sensor über das Qwicc Kabel wird das I2C (Inter-Integrated Circuit) Kommunikationsprotokoll verwendet. I2C ist ein serielles Kommunikationsprotokoll, das es ermöglicht,
+Daten zwischen mehreren integrierten Schaltkreisen (ICs) über nur zwei Leitungen zu übertragen: eine für die Daten (SDA) und eine für den Takt (SCL).
+Der Arduino empfängt die Daten über die I2C-Leitungen, verarbeitet sie und leitet sie anschließend an den Computer zur weiteren Analyse und Visualisierung weiter.
 
 
 \subsection{Aufgabe 2: MVC Durchführung}
