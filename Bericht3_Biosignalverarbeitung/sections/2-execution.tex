@@ -22,7 +22,7 @@ Die verwendeten Komponenten sind in Tabelle \ref{tab:verwendete_komponenten} auf
       Messung der elektrischen Signale des Muskels \\
     Arduino IDE 1.8.19 & 3 &
       Programmierung des Arduino Mikrocontrollers \\
-    Python 3.9 & 4 &
+    Python 3.13 & 4 &
       Verarbeitung, Aufzeichnung und Visualisierung der Sensordaten \\
     12 Bit ADC & 5 &
       Wandlung der analogen Sensordaten in digitale Werte \\
@@ -41,13 +41,13 @@ Die verwendeten Komponenten sind in Tabelle \ref{tab:verwendete_komponenten} auf
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{figures/components_labeled.jpeg}
-    \caption{Aufbau des Messsystems mit Beschriftung der einzelnen Komponenten}
+    \caption{Aufbau des Messsystems mit den Beschriftungen der einzelnen Komponenten}
     \label{fig:versuchsaufbau_lab3}
 \end{figure}
 
 Zwischen dem Arduino und dem EMG-Sensor über das Qwicc Kabel wird das I2C (Inter-Integrated Circuit) Kommunikationsprotokoll verwendet. I2C ist ein serielles Kommunikationsprotokoll, das es ermöglicht,
 Daten zwischen mehreren integrierten Schaltkreisen (ICs) über nur zwei Leitungen zu übertragen: eine für die Daten (SDA) und eine für den Takt (SCL).
-I2C wurde auf eine Baudrate von 500000 bps eingestellt, um eine ausreichend schnelle Datenübertragung zu gewährleisten.
+I2C wurde auf eine Baudrate von 500000 Bits pro Sekunde eingestellt, um eine ausreichend schnelle Datenübertragung zu gewährleisten.
 Der Arduino empfängt die Daten über die I2C-Leitungen, verarbeitet sie und leitet sie anschließend an den Computer zur weiteren Analyse und Visualisierung weiter.
 \newline
 In Abbildung \ref{fig:versuchsaufbau_lab3} ist der gesamte Versuchsaufbau zu sehen, inklusive aller
@@ -65,8 +65,8 @@ In der Abbildung \ref{fig:filtered_mvc_subplots} sind die Auswirkungen der Filte
 Im oberen Teil der Abbildung ist das ungefilterte EMG-Signal zu sehen, das um den Offset korrigiert wurde.
 Im zweiten Teil der Abbildung ist das gefilterte EMG-Signal dargestellt, das durch die Anwendung eines Bandpassfilters deutlich geglättet wurde.
 Im dritten Teil der Abbildung ist die kumulative Muskelaktivität gezeigt, was die Einordnung und Interpretation der Muskelaktivität während des Versuchs erleichtert.
-Im vierten und letzten Teil der Abbildung ist die Einhüllende des EMG-Signals dargestellt, die die Amplitudenmodulation des Signals verdeutlicht und eine bessere Visualisierung der Muskelaktivität ermöglicht.
-
+Im vierten und letzten Teil der Abbildung ist die Einhüllende des EMG-Signals dargestellt, welche die Amplitudenmodulation des Signals verdeutlicht und eine bessere Visualisierung der Muskelaktivität ermöglicht.
+\newline
 Der genaue Ablauf des MVC-Versuchs wird in Aufgabe 4 beschrieben.
 
 \subsection{Aufgabe 3: Mittlere MVC aller Probanten}
@@ -94,22 +94,25 @@ HIER FEHLEN WERTE und kurze Erklärung, warum sich diese unterscheiden könnten.
 Wie in Abbildung \ref{fig:measuring_electrodes} und \ref{fig:GND_electrode_c7} dargestellt, besteht der 
 MVC-Versuchsaufbau aus mehreren Komponenten. Am Probanden wurden drei Elektroden angebracht, vergleichbar 
 zu jenen, die bereits im Lab~2 verwendet wurden. Zwei Messelektroden wurden auf dem Bauch des Musculus 
-biceps brachii platziert, wobei eine Elektrode etwa zwei Zentimeter distal in Richtung der Sehne angebracht 
+Bizeps brachii platziert, wobei eine Elektrode etwa zwei Zentimeter distal in Richtung der Sehne angebracht 
 wurde \ref{fig:measuring_electrodes}. Eine Referenz- bzw. Groundelektrode wurde auf dem Dornfortsatz 
 des siebten Halswirbels (C7) positioniert \ref{fig:GND_electrode_c7}. Diese Platzierung wurde gewählt,
 um Störungen und bewegungsbedingte Artefakte möglichst gering zu halten.
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.3\textwidth]{figures/measuring_electrodes.png}
     \caption{Platzierung der Messelektroden für den MVC-Versuch}
     \label{fig:measuring_electrodes}
 \end{figure}
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.3\textwidth]{figures/GND_electrode_c7.png}
     \caption{Platzierung der GND-Elektrode auf dem C7-Wirbel}
     \label{fig:GND_electrode_c7}
 \end{figure}
+
 Wie in Abbildung \ref{fig:biceps_tension} zu erkennen ist, sitzt der Proband auf einem Stuhl, wobei der 
 Unterarm auf dem Oberschenkel aufliegt. Dadurch stellt sich mit minimaler Bewegung ein etwa 90°-Winkel 
 zwischen Ober- und Unterarm ein. Das Handgelenk liegt an der Unterkante des Tisches an. Zur Bestimmung der 
@@ -123,7 +126,7 @@ unbeweglich bleibt und keine sichtbare Bewegung stattfinden kann.
     \label{fig:biceps_tension}
 \end{figure}
 Durch diesen Versuchsaufbau wird eine isometrische Kontraktion des Bizeps brachii ermöglicht, 
-bei der der Muskel Kraft entwickelt, ohne sich zu verkürzen. Die gewählte Gelenkstellung begünstigt zudem 
+bei der der Muskel Kraft entwickelt, ohne sich zu verkürzen. Die gewählte Gelenkstellung von 90° zwischen dem Ober- und Unterarm begünstigt zudem 
 eine nahezu optimale Länge-Spannungs-Relation des Muskels. In Kombination mit der stabilen Körperhaltung 
 und dem unbeweglichen Widerstand erlaubt dies eine maximale Rekrutierung motorischer Einheiten und somit 
 eine maximale willkürliche Kontraktion.
@@ -131,10 +134,6 @@ Die maximale Anspannung wird für acht bis zehn Sekunden gehalten, während die 
 werden. Dieser Vorgang wird dreimal wiederholt, wobei zwischen den einzelnen Versuchen eine Pause von etwa
 einer Minute eingehalten wird, um muskuläre Ermüdung zu vermeiden. Der MVC-Versuch wurde für alle drei 
 Gruppenmitglieder durchgeführt.
-Der Bizeps Brachii lässt sich in diesem Versuchsaufbau maximal kontrahieren, da sich um eine isometrische 
-Kontraktion handelt und dadurch kein Kraftverlust durch Beschleunigung auftritt.
-Zudem bedeutet der 90°-Winkel zwischen Ober- und Unterarm, dass der Bizeps in einer optimalen Länge für
-die maximale Kraftentwicklung ist.
 
 \subsection{Aufgabe 5: Experiment 2 - Relative Muskelaktivierung}
 \begin{figure}[h]
@@ -145,15 +144,15 @@ die maximale Kraftentwicklung ist.
 \end{figure}
 Zur Bestimmung der maximalen willkürlichen Kontraktion (MVC) wurden die drei MVC-Messungen 
 zunächst gemittelt. Mithilfe der Einhüllenden der EMG-Signale konnten die Aktivierungsphasen
- eindeutig identifiziert und zeitlich abgegrenzt werden. Innerhalb dieser Intervalle wurde 
- der Mittelwert der Muskelaktivierung berechnet und anschließend über alle drei Durchläufe 
- gemittelt. Der so ermittelte Wert stellt die individuelle maximale willkürliche Kontraktion 
- dar und dient im Folgenden als Referenzgröße.
+eindeutig identifiziert und zeitlich abgegrenzt werden. Innerhalb dieser Intervalle wurde 
+der Mittelwert der Muskelaktivierung berechnet und anschließend über alle drei Durchläufe 
+gemittelt. Der so ermittelte Wert stellt die individuelle maximale willkürliche Kontraktion 
+dar und dient im Folgenden als Referenzgröße.
 Wie in Abbildung \ref{fig:mvc_weights} dargestellt, ist bei den Belastungsversuchen eine 
 deutlich geringere Muskelaktivierung im Vergleich zur MVC zu beobachten. Die gemessene 
 Aktivität liegt erwartungsgemäß bei einem Bruchteil der maximalen willkürlichen Kontraktion.
- Dies deutet darauf hin, dass für das Halten submaximaler Gewichte lediglich ein Teil der 
- verfügbaren motorischen Einheiten rekrutiert werden muss.
+Dies deutet darauf hin, dass für das Halten submaximaler Gewichte lediglich ein Teil der 
+verfügbaren motorischen Einheiten rekrutiert werden muss.
 Darüber hinaus zeigt sich, dass die Muskelaktivierung nicht strikt proportional zur 
 aufgebrachten Last ansteigt. Dieses Verhalten lässt darauf schließen, dass neben der 
 reinen Last weitere Einflussfaktoren, wie die muskuläre Mechanik, die 
@@ -169,12 +168,10 @@ der Kraftentwicklung spielen.
     \label{fig:frequency_analysis_fatigue_experiment}
 \end{figure}
 In Abbildung \ref{fig:frequency_analysis_fatigue_experiment} ist die Frequenzanalyse des EMG-Signals
-während des Ermüdungsexperiments dargestellt. Die Analyse zeigt eine leichte Verschiebung der
-spektralen Anteile hin zu niedrigeren Frequenzen im Verlauf der Haltearbeit. Dies ist ein typisches
-Phänomen, das auf die Ermüdung der Muskulatur zurückzuführen ist. Wir haben uns hier bewusst für die Darstellung der drei Fatigue-Durchläufe entschieden,
+während des Ermüdungsexperiments dargestellt. Wir haben uns hier bewusst für die Darstellung der drei Fatigue-Durchläufe entschieden,
 um die Konsistenz der beobachteten Veränderungen zu verdeutlichen.
 
-\subsection{Aufgabe 7: Darstellung des Leistungsspektrums}
+\subsection{Aufgabe 7: Diskussion des Leistungsspektrums}
 Wie in Abbildung \ref{fig:frequency_analysis_fatigue_experiment} dargestellt, zeigt das Leistungsspektrum des EMG-Signals eine 
 deutliche Konzentration der spektralen Anteile im niedrigen Frequenzbereich.
 Dieses Spektralverhalten ist charakteristisch für EMG-Signale während isometrischer Kontraktionen und 
@@ -192,7 +189,7 @@ Reduktion der Muskelfaserleitgeschwindigkeit einhergeht.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{../Labor_3/data_analysis/median_frequencies.png}
-    \caption{Analyser der Medianfrequenz des EMG-Signals während des Ermüdungsexperiments}
+    \caption{Analyse der Medianfrequenz des EMG-Signals während des Ermüdungsexperiments}
     \label{fig:median_frequencies}
 \end{figure}
 
@@ -202,7 +199,7 @@ Es zeigt sich eine kontinuierliche Abnahme der Medianfrequenz im Verlauf der
 statischen Haltearbeit.
 Dieser Trend gilt als typisches Indiz für muskuläre Ermüdung, da eine Abnahme
 der Medianfrequenz mit einer Reduktion der Muskelfaserleitgeschwindigkeit 
-assoziiert ist. Physiologisch lässt sich dieses Verhalten unter anderem 
+assoziiert ist, wie schon in Aufgabe 7 erläutert wurde. Physiologisch lässt sich dieses Verhalten unter anderem 
 durch die Akkumulation von Metaboliten, Veränderungen des intrazellulären 
 pH-Werts sowie eine Abnahme der Entladungsfrequenz motorischer Einheiten 
 erklären. Insbesondere schnell kontrahierende Muskelfasern ermüden im 
@@ -219,7 +216,7 @@ EMG-Frequenzparameter unterliegen einer hohen interindividuellen
 Variabilität. Unterschiede in der Muskelfaserzusammensetzung, der neuronalen 
 Ansteuerung und dem Ermüdungsverhalten können dazu führen, dass die 
 Medianfrequenz zwischen einzelnen Versuchen unterschiedlich verläuft. Darüber
-hinaus basiert die Auswertung lediglich auf drei relativ Zeitpunkten, 
+hinaus basiert die Auswertung lediglich auf drei relativen Zeitpunkten, 
 wodurch kurzfristige Schwankungen nicht abgebildet werden können. Insgesamt 
 zeigt das Diagramm jedoch den erwarteten Trend einer abnehmenden 
 Medianfrequenz und bestätigt das Auftreten muskulärer Ermüdung.
