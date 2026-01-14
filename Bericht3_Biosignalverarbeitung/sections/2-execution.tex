@@ -10,7 +10,7 @@ Die verwendeten Komponenten sind in Tabelle \ref{tab:verwendete_komponenten} auf
     \caption{Blockschaltbild des Messsystems}
     \label{fig:blockschlaltbild_lab3}
 \end{figure}
-\begin{table}[ht]
+\begin{table}[h]
   \centering
   \begin{tabularx}{\textwidth}{X c X}
     \hline
@@ -38,7 +38,7 @@ Die verwendeten Komponenten sind in Tabelle \ref{tab:verwendete_komponenten} auf
   \label{tab:verwendete_komponenten}
 \end{table}
 
-\begin{figure}[ht]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{figures/components_labeled.jpeg}
     \caption{Aufbau des Messsystems mit Beschriftung der einzelnen Komponenten}
@@ -53,11 +53,10 @@ Der Arduino empfängt die Daten über die I2C-Leitungen, verarbeitet sie und lei
 In Abbildung \ref{fig:versuchsaufbau_lab3} ist der gesamte Versuchsaufbau zu sehen, inklusive aller
 verwendeten Komponenten. Die Elektroden sind am Arm des Probanden befestigt, um die EMG-Signale des Bizeps Brachii zu erfassen.
 
-
 \subsection{Aufgabe 2: MVC Durchführung}
-\begin{figure}[ht]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{../Labor_3/data_analysis/filtered_mvc.png}
+    \includegraphics[width=0.6\textwidth]{../Labor_3/data_analysis/filtered_mvc.png}
     \caption{Die Auswirkungen der Filterung auf das rohe EMG-Signal des MVC-Versuchs}
     \label{fig:filtered_mvc_subplots}
 \end{figure}
@@ -72,7 +71,7 @@ Der genaue Ablauf des MVC-Versuchs wird in Aufgabe 4 beschrieben.
 
 \subsection{Aufgabe 3: Mittlere MVC aller Probanten}
 Die mittleren MVC-Werte aller Probanten sind in Tabelle \ref{tab:mittlereMVCProbanten} dargestellt.
-\begin{table}[ht]
+\begin{table}[h]
   \centering
   \begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X|
                                 >{\centering\arraybackslash}X}
@@ -137,7 +136,7 @@ Kontraktion handelt und dadurch kein Kraftverlust durch Beschleunigung auftritt.
 Zudem bedeutet der 90°-Winkel zwischen Ober- und Unterarm, dass der Bizeps in einer optimalen Länge für
 die maximale Kraftentwicklung ist.
 
-\subsection{Aufgabe 5: Experiment 2 -Relative Muskelaktivierung}
+\subsection{Aufgabe 5: Experiment 2 - Relative Muskelaktivierung}
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{../Labor_3/data_analysis/mvc_weights.png}
@@ -149,8 +148,8 @@ gemittelt. Mithilfe der Einhüllenden der EMG-Signale konnten die Aktivierungsph
 und zeitlich abgegrenzt werden. Innerhalb dieser Intervalle wurde der Mittelwert der Muskelaktivierung 
 berechnet und anschließend über alle drei Durchläufe gemittelt. Der so ermittelte Wert stellt die 
 individuelle maximale willkürliche Kontraktion dar und dient im Folgenden als Referenzgröße.
-Die Auswertung der Belastungsversuche zeigt eine deutlich geringere Muskelaktivierung im 
-Vergleich zur MVC. Die gemessene Aktivität liegt erwartungsgemäß bei einem Bruchteil der maximalen 
+Wie Abbildung \ref{fig:mvc_weights} zeigt, ist eine deutlich geringere Muskelaktivierung im 
+Vergleich zur ausgangs-MVC zu erkennen. Die gemessene Aktivität liegt erwartungsgemäß bei einem Bruchteil der maximalen 
 willkürlichen Kontraktion und skaliert proportional mit der aufgebrachten Last. Dies bestätigt, dass 
 für das Halten submaximaler Gewichte nur ein Teil der verfügbaren motorischen Einheiten rekrutiert 
 werden muss.
